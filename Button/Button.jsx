@@ -1,7 +1,7 @@
 import React from "react"
 
 
-const Button = ({onClick, btnStyle, children}) => {
+const Button = ({onClick,children}) => {
     return (
         <button style={{
             padding:"15px",
