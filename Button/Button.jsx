@@ -1,16 +1,10 @@
 import React from "react"
 
 
-const Button = ({onClick,children}) => {
+const Button = ({onClick,buttonStyle,children}) => {
     return (
-        <button style={{
-            padding:"15px",
-            border: "20px",
-            borderRadius: "50px 50px",
-            backgroundColor:"chartreuse" 
-        }} onClick={onClick}>
+        <button style={buttonStyle} onClick={onClick}>
             {children}
-
         </button>
     );
 }
