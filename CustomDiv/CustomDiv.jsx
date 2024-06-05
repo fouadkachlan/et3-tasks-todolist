@@ -60,7 +60,7 @@ const CustomDiv = () => {
                     </li>
                 ))}
             </ul>
-            <Button onClick={addTodo}>Add Task</Button>
+            <Button buttonStyle={{ padding:"15px",border: "20px",borderRadius: "50px 50px",backgroundColor:"chartreuse" }} onClick={addTodo}>Add Task</Button>
         </div>
     );
 }
