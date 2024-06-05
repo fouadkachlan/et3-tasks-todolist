@@ -7,7 +7,7 @@ const TodoList = () => {
   const addTodo = () => {
     if (inputValue.trim() !== "") {
       setTodos([...todos, inputValue]);
-      setInputValue(""); // Clear input after adding task
+      setInputValue(""); 
     }
   };
 
@@ -41,6 +41,7 @@ const TodoList = () => {
           <li key={index}>
             {todo}
             <button style={{
+              backgroundColor: "chartreuse",
               margin: "10px",
               padding: "25px",
               border: "20px",
@@ -49,6 +50,7 @@ const TodoList = () => {
               Edit
             </button>
             <button style={{
+              backgroundColor: "chartreuse",
               margin: "10px",
               padding: "25px",
               border: "20px",
@@ -57,14 +59,7 @@ const TodoList = () => {
           </li>
         ))}
       </ul>
-      <Button onClick={addTodo} btnStyle={
-                        {padding:"15px",
-                          border: "20px",
-                          borderRadius: "50px 50px",
-                          backgroundCcolor:"chartreuse"}}
-       >
-        Add Task
-        </Button>
+      <Button onClick={addTodo}>Add Task</Button>
     </div>
   );
 };
