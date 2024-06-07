@@ -5,8 +5,8 @@ interface CustomeDivProps {
   style : React.CSSProperties;
 }
 
-const CustomeDiv: React.FC<CustomeDivProps> = ({ children, style }) => {
+const CustomDiv: React.FC<CustomeDivProps> = ({ children, style }) => {
   return <div style={style}>{children}</div>;
 }
 
-export default CustomeDiv;
+export default CustomDiv;
