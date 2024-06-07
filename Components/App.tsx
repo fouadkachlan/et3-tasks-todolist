@@ -30,17 +30,22 @@ const App: FC = () => {
       return task.taskName !== taskNameToDelete;
     }));
   };
+  const sameStyles = {
+    display:'flex',
+    justifyContent: 'center',
+    alignItems: 'center'
+  }
 
   return (
-    <CustomDiv>
+    <CustomDiv style={{ width:'110%'}}>
       <CustomDiv style={{ 
-        display:'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
+        ...sameStyles,
         backgroundColor:'lightseagreen',
         fontStyle: 'oblique',
         color: 'black',
-        fontSize:'50px'
+        fontSize:'50px',
+        marginRight: '111px',
+        marginLeft: '-10px'
        }}>To Do List Using TypeScript</CustomDiv>
       <CustomDiv style={{
         display: 'flex',
@@ -51,12 +56,11 @@ const App: FC = () => {
         fontFamily: 'Arial, Helvetica, sans-serif'
       }}>
         <CustomDiv style={{
+          ...sameStyles,
           flex: 30,
           backgroundColor: 'tomato',
           width: '100%',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center'
+          marginRight: '100px',
         }}>
           <CustomDiv style={{ display: 'flex', flexDirection: 'column' }}>
             <CustomInput type="text" name="task" placeholder="Task..." value={task} onChange={handleChange} style={{
@@ -79,6 +83,7 @@ const App: FC = () => {
             }} />
           </CustomDiv>
           <CustomButton onClick={addTask} style={{
+            ...sameStyles,
             width: '70px',
             height: '87px',
             border: 'none',
@@ -86,9 +91,6 @@ const App: FC = () => {
             borderTopRightRadius: '8px',
             paddingLeft: '10px',
             cursor: 'pointer',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
             backgroundColor: 'lightseagreen',
             color: 'white'
           }}>Add Task</CustomButton>
