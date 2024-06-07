@@ -3,8 +3,8 @@ import React, { CSSProperties } from 'react';
 interface CustomeDivProps {
   children: React.ReactNode;
   style : React.CSSProperties;
-  width: number | string;
-  height: number | string;
+  width: string;
+  height: string;
   display: "flex",
   alignItems: "center" | "flex-start" | "flex-end",
   justifyContent: "center" | "flex-start" | "flex-end"
