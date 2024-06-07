@@ -31,9 +31,8 @@ const App: FC = () => {
     }));
   };
 
- //const CustomDiv: React.FC<CustomeDivProps> = ({ children, style , width , height , display , alignItems , justifyContent  }) => {
   return (
-    <CustomDiv width="100%" height="150%"  display="flex"  justifyContent="center" alignItems="center"  style={{ backgroundColor: '#f0f0f0'}}>
+    <CustomDiv width="100%" height="100%"  display="flex"  justifyContent="center" alignItems="center"  style={{ backgroundColor: '#f0f0f0'}}>
       <CustomDiv display="flex" justifyContent="center" alignItems="center" width="" height=""
        style={{
           backgroundColor: 'lightseagreen',
@@ -58,7 +57,7 @@ const App: FC = () => {
       }>
         <CustomDiv width="100%" height="80%" display="flex" alignItems="center" justifyContent="center"
         style={
-            {flex: 30,
+            {
             backgroundColor: 'tomato',
             width: '100%',
             marginBottom: '2%',
