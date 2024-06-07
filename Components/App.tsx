@@ -30,17 +30,12 @@ const App: FC = () => {
       return task.taskName !== taskNameToDelete;
     }));
   };
-  const sameStyles = {
-    display:'flex',
-    justifyContent: 'center',
-    alignItems: 'center'
-  }
 
-  const finalizedStyle = (style: React.CSSProperties) => ({...sameStyles , ...style});
+ //const CustomDiv: React.FC<CustomeDivProps> = ({ children, style , width , height , display , alignItems , justifyContent  }) => {
   return (
-    <CustomDiv style={{ width: '100%', height: '100vh', backgroundColor: '#f0f0f0'}}>
-      <CustomDiv style={
-        finalizedStyle({
+    <CustomDiv width="100%" height="150%"  display="flex"  justifyContent="center" alignItems="center"  style={{ backgroundColor: '#f0f0f0'}}>
+      <CustomDiv display="flex" justifyContent="center" alignItems="center" width="" height=""
+       style={{
           backgroundColor: 'lightseagreen',
           fontStyle: 'oblique',
           color: 'black',
@@ -48,34 +43,32 @@ const App: FC = () => {
           margin: '2% 0',
           padding: '1%',
           width: '100%'
-        })}
+        }}
 
        >To Do List Using TypeScript</CustomDiv>
-      <CustomDiv style={
-        finalizedStyle({
+      <CustomDiv width="100%" height="80%" display="flex" alignItems="center" justifyContent="center"
+      style={{
           flexDirection: 'column',
-          width: '100%',
-          height: '80%',
           fontFamily: 'Arial, Helvetica, sans-serif',
           backgroundColor: '#fff',
           boxShadow: '0 0 10px rgba(0,0,0,0.1)',
           borderRadius: '10px',
           padding: '2%'
-        })
-        
+        }
       }>
-        <CustomDiv style={
-          finalizedStyle({
-            flex: 30,
+        <CustomDiv width="100%" height="80%" display="flex" alignItems="center" justifyContent="center"
+        style={
+            {flex: 30,
             backgroundColor: 'tomato',
             width: '100%',
             marginBottom: '2%',
             borderRadius: '5%',
-            padding: '1%'
-          })
+            padding: '1%'}
+          }
           
-        }>
-          <CustomDiv style={{ display: 'flex', flexDirection: 'column', width: '100%'}}>
+        >
+          <CustomDiv width="100%" height="80%" display="flex" alignItems="center" justifyContent="center"
+           style={{ flexDirection: 'column'}}>
             <CustomInput type="text" name="task" placeholder="Task..." value={task} onChange={handleChange} style={{
               width: '100%',
               height: '40px',
@@ -94,8 +87,7 @@ const App: FC = () => {
               border: '1px solid grey'
             }} />
           </CustomDiv>
-          <CustomButton onClick={addTask} style={
-            finalizedStyle({
+          <CustomButton onClick={addTask} style={{
               width: '100%',
               height: '45%',
               border: 'none',
@@ -107,10 +99,11 @@ const App: FC = () => {
               marginTop: '2%',
               marginLeft: '3%',
               marginBottom: '2%'
-            })
-          }>Add Task</CustomButton>
+          }}
+          >Add Task</CustomButton>
         </CustomDiv>
-        <CustomDiv style={{
+        <CustomDiv width="100%" height="" display="flex" alignItems="center" justifyContent="center"
+        style={{
           flex: 70,
           width: '100%',
           display: 'flex',
