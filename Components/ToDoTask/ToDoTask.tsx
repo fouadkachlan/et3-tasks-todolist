@@ -13,19 +13,14 @@ interface Props {
 const TodoTask: React.FC<Props> = ({ task, completeTask }) => {
   return (
     
-    <CustomeDiv style={{
-      width: '500px',
-      height: '50px',
-      display: 'flex',
+    <CustomeDiv width="500px" height="50px" display="flex" alignItems="center" justifyContent="center"
+     style={{
       color: 'white',
       margin: '15px'
     }}>
-      <CustomeDiv style={{
+      <CustomeDiv width="" height="100%" display="flex" alignItems="center" justifyContent="center"
+      style={{
         flex: 80,
-        height: '100%',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center'
       }}>
         <CustomSpan style={{
           display: 'grid',
