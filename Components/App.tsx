@@ -35,64 +35,71 @@ const App: FC = () => {
     justifyContent: 'center',
     alignItems: 'center'
   }
-
   return (
-    <CustomDiv style={{ width:'110%'}}>
+    <CustomDiv style={{ width: '100%', height: '100vh', backgroundColor: '#f0f0f0'}}>
       <CustomDiv style={{ 
         ...sameStyles,
-        backgroundColor:'lightseagreen',
+        backgroundColor: 'lightseagreen',
         fontStyle: 'oblique',
         color: 'black',
-        fontSize:'50px',
-        marginRight: '111px',
-        marginLeft: '-10px'
+        fontSize: '4vw',
+        margin: '2% 0',
+        padding: '1%',
+        width: '100%'
        }}>To Do List Using TypeScript</CustomDiv>
       <CustomDiv style={{
         display: 'flex',
         alignItems: 'center',
         flexDirection: 'column',
-        width: '100vw',
-        height: '100vh',
-        fontFamily: 'Arial, Helvetica, sans-serif'
+        width: '100%',
+        height: '80%',
+        fontFamily: 'Arial, Helvetica, sans-serif',
+        backgroundColor: '#fff',
+        boxShadow: '0 0 10px rgba(0,0,0,0.1)',
+        borderRadius: '10px',
+        padding: '2%'
       }}>
         <CustomDiv style={{
           ...sameStyles,
           flex: 30,
           backgroundColor: 'tomato',
           width: '100%',
-          marginRight: '100px',
+          marginBottom: '2%',
+          borderRadius: '10px',
+          padding: '1%'
         }}>
-          <CustomDiv style={{ display: 'flex', flexDirection: 'column' }}>
+          <CustomDiv style={{ display: 'flex', flexDirection: 'column', width: '100%'}}>
             <CustomInput type="text" name="task" placeholder="Task..." value={task} onChange={handleChange} style={{
-              width: '200px',
+              width: '100%',
               height: '40px',
-              borderBottomLeftRadius: '8px',
-              borderTopLeftRadius: '8px',
+              borderRadius: '8px',
               paddingLeft: '10px',
-              fontSize: '17px',
-              border: '1px solid grey'
+              fontSize: '1.5vw',
+              border: '1px solid grey',
+              marginBottom: '10px'
             }} />
             <CustomInput type="number" name="deadline" placeholder="Deadline (in Days)..." value={deadline} onChange={handleChange} style={{
-              width: '200px',
+              width: '100%',
               height: '40px',
-              borderBottomLeftRadius: '8px',
-              borderTopLeftRadius: '8px',
+              borderRadius: '8px',
               paddingLeft: '10px',
-              fontSize: '17px',
+              fontSize: '1.5vw',
               border: '1px solid grey'
             }} />
           </CustomDiv>
           <CustomButton onClick={addTask} style={{
             ...sameStyles,
-            width: '70px',
-            height: '87px',
+            width: '100%',
+            height: '100px',
             border: 'none',
-            borderBottomRightRadius: '8px',
-            borderTopRightRadius: '8px',
-            paddingLeft: '10px',
+            borderRadius: '8px',
             cursor: 'pointer',
             backgroundColor: 'lightseagreen',
-            color: 'white'
+            color: 'white',
+            fontSize: '1.5vw',
+            marginTop: '10px',
+            marginLeft: '20px',
+            marginBottom: '10px'
           }}>Add Task</CustomButton>
         </CustomDiv>
         <CustomDiv style={{
@@ -100,8 +107,9 @@ const App: FC = () => {
           width: '100%',
           display: 'flex',
           alignItems: 'center',
-          paddingTop: '50px',
-          flexDirection: 'column'
+          paddingTop: '2%',
+          flexDirection: 'column',
+          overflowY: 'auto'
         }}>
           {
             todoList.map((task: ITask, key: number) => {
