@@ -65,23 +65,23 @@ const App: FC = () => {
           backgroundColor: 'tomato',
           width: '100%',
           marginBottom: '2%',
-          borderRadius: '10px',
+          borderRadius: '5%',
           padding: '1%'
         }}>
           <CustomDiv style={{ display: 'flex', flexDirection: 'column', width: '100%'}}>
             <CustomInput type="text" name="task" placeholder="Task..." value={task} onChange={handleChange} style={{
               width: '100%',
               height: '40px',
-              borderRadius: '8px',
+              borderRadius: '5%',
               paddingLeft: '10px',
               fontSize: '1.5vw',
               border: '1px solid grey',
-              marginBottom: '10px'
+              marginBottom: '5%'
             }} />
             <CustomInput type="number" name="deadline" placeholder="Deadline (in Days)..." value={deadline} onChange={handleChange} style={{
               width: '100%',
               height: '40px',
-              borderRadius: '8px',
+              borderRadius: '5%',
               paddingLeft: '10px',
               fontSize: '1.5vw',
               border: '1px solid grey'
@@ -90,16 +90,16 @@ const App: FC = () => {
           <CustomButton onClick={addTask} style={{
             ...sameStyles,
             width: '100%',
-            height: '100px',
+            height: '45%',
             border: 'none',
-            borderRadius: '8px',
+            borderRadius: '5%',
             cursor: 'pointer',
             backgroundColor: 'lightseagreen',
             color: 'white',
             fontSize: '1.5vw',
-            marginTop: '10px',
-            marginLeft: '20px',
-            marginBottom: '10px'
+            marginTop: '2%',
+            marginLeft: '3%',
+            marginBottom: '2%'
           }}>Add Task</CustomButton>
         </CustomDiv>
         <CustomDiv style={{
