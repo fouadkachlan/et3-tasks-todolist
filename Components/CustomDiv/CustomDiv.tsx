@@ -2,7 +2,7 @@ import React from 'react';
 
 interface CustomeDivProps {
   children: React.ReactNode;
-  style?: React.CSSProperties;
+  style : React.CSSProperties;
 }
 
 const CustomeDiv: React.FC<CustomeDivProps> = ({ children, style }) => {
