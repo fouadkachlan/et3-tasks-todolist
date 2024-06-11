@@ -1,15 +1,7 @@
 import { makeAutoObservable, observable } from "mobx";
 import memoize  from "lodash.memoize";
-interface Product 
-{
-    id: number;
-    name: string;
-    price: number;
-}
-interface CartItem extends Product
-{
-    quantity: number;
-}
+import { Product } from "../interfaces/ProductAndCartItemInterface";
+import { CartItem } from "../interfaces/ProductAndCartItemInterface";
 class CartStore {
     totalItems = observable.box(0);
     items = observable.array<CartItem>([]);
