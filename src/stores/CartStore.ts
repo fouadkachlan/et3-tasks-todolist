@@ -1,5 +1,5 @@
-import { makeAutoObservable } from "mobx"
-
+import { makeAutoObservable, observable } from "mobx";
+import memoize  from "lodash.memoize";
 interface Product 
 {
     id: number;
@@ -12,6 +12,7 @@ interface CartItem extends Product
 }
 class CartStore
 {
+    totalitems= observable.box(0);
     items: CartItem[] = [];
     constructor()
     {
@@ -26,6 +27,8 @@ class CartStore
         }else{
             this.items.push({...product, quantity:1});
         }
+        console.log("Items after adding:", this.items);
+        this.updateTotalItems();
     }
     removeItem(productId:number): void
     {
@@ -38,17 +41,33 @@ class CartStore
             }else{
                 this.items.splice(itemIndex,1);
             }
+            console.log("Items after removing:", this.items);
+            this.updateTotalItems();
         }
     }
-    get totalItems(): number {
+    updateTotalItems(): void {
+        const newTotalItems = this.getTotalItems();
+        console.log("Updating total items to:", newTotalItems);
+        this.totalitems.set(newTotalItems);
+      }
+      getTotalItems(): number {
         return this.items.reduce((total, item) => total + item.quantity, 0);
       }
-    
+      
+        
       get totalPrice(): number {
         return this.items.reduce((total, item) => total + item.price * item.quantity, 0);
       }
-    }
-    
+      get renderedItems() {
+        return this.items.map(item => ({
+            ...item,
+            removeItem: () => this.removeItem(item.id)
+        }));
+      }
+}
 
+  
+    
+    
 
 export const cartStore = new CartStore();
