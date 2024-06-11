@@ -1,17 +1,28 @@
-import { makeAutoObservable, observable } from "mobx";
+import { makeAutoObservable, observable, runInAction } from "mobx";
 import memoize  from "lodash.memoize";
 import { Product } from "../interfaces/ProductAndCartItemInterface";
 import { CartItem } from "../interfaces/ProductAndCartItemInterface";
 class CartStore {
     totalItems = observable.box(0);
     items = observable.array<CartItem>([]);
+
+    setItems(items: CartItem[]) : void
+    {
+        runInAction(() =>{
+            this.items.replace(items);
+        })
+    }
     addItem(product: Product): void {
         const existingItem = this.items.find(item => item.id === product.id);
+        let updatedItems;
         if (existingItem) {
-            existingItem.quantity++;
+            updatedItems = this.items.map(item =>
+                item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
+            );
         } else {
-            this.items.push({...product, quantity: 1});
+            updatedItems = [...this.items, { ...product, quantity: 1 }];
         }
+        this.setItems(updatedItems);
         console.log("Items after adding:", this.items);
         this.updateTotalItems();
     }
@@ -19,12 +30,16 @@ class CartStore {
     removeItem(productId: number): void {
         const itemIndex = this.items.findIndex(item => item.id === productId);
         if (itemIndex > -1) {
+            let updatedItems;
             const currentItem = this.items[itemIndex];
             if (currentItem.quantity > 1) {
-                currentItem.quantity--;
+                updatedItems = this.items.map(item =>
+                    item.id === productId ? { ...item, quantity: item.quantity - 1 } : item
+                );
             } else {
-                this.items.splice(itemIndex, 1);
+                updatedItems = this.items.filter(item => item.id !== productId);
             }
+            this.setItems(updatedItems);
             console.log("Items after removing:", this.items);
             this.updateTotalItems();
         }
