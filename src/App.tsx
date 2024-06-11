@@ -3,6 +3,8 @@ import ProductList from './Components/ProductList';
 import ShoppingCart from './Components/ShoppingCart';
 import UserInfo from './Components/UserInfo';
 import CustomDiv from './Components/CustomDiv';
+import CustomText from './Components/CustomText'
+import './App.css';
 
 
 
@@ -15,7 +17,8 @@ const App : React.FC = () => {
         padding:"0",
         boxSizing: "border-box",
         backgroundColor: "#f7f7f7"}}>
-        <h1 style={{color: "#333"}}>Online Shopping Cart</h1>
+        <CustomText fontSize='35pt' fontWeight=''
+         style={{color: "#333"}}>Online Shopping Cart</CustomText>
         <UserInfo />
         <ProductList />
         <ShoppingCart />
