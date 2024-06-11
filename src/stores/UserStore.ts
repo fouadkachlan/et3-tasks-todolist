@@ -1,16 +1,23 @@
-import { makeAutoObservable } from "mobx";
+import { makeAutoObservable, runInAction } from "mobx";
 import { User } from "../interfaces/userInterface";
 
 class UserStore
 {
-    user: User = {name: "Fouad Kachlan"};
+    private _user: User = {name: "Fouad Kachlan"};
     constructor()
     {
-        makeAutoObservable(this);
+        makeAutoObservable(this,{
+            setUser: false
+        });
     }
-    setUser(name: string)
+    get user(): User 
     {
-        this.user.name = name;
+        return this._user;
+    }
+    setUser(name: string): void{
+        runInAction(() => {
+            this._user.name = name;
+        })
     }
 }
 
