@@ -1,10 +1,5 @@
 import { makeAutoObservable, observable, runInAction } from "mobx";
-
-interface Product {
-    id: number;
-    name: string;
-    price: number;
-}
+import { Product } from "../interfaces/productInterface";
 
 class ProductStore {
     products :Product[] = observable([
