@@ -1,9 +1,6 @@
 import { makeAutoObservable } from "mobx";
+import { User } from "../interfaces/userInterface";
 
-interface User
-{
-    name: string;
-}
 class UserStore
 {
     user: User = {name: "Fouad Kachlan"};
