@@ -17,9 +17,10 @@ class ProductStore
         {id: 5 , name: 'Product 5', price: 36},
         {id: 6 , name: 'Product 6', price: 90}
     ];
-    constructor()
+
+    setProducts(products: Product[]): void
     {
-        makeAutoObservable(this)
+        this.products = products;
     }
 }
 
