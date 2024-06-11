@@ -48,7 +48,7 @@ const ShoppingCart: React.FC = observer(() => {
         <CustomDiv  alignItems= "center" justifyContent="space-between" 
         display="block"  width=""
          height=""style={{fontSize: "1.2em",fontWeight: "bold"}}
-        >Total Items: {cartStore.totalitems.get()}</CustomDiv>
+        >Total Items: {cartStore.getTotalItems()}</CustomDiv>
 
 
         <CustomDiv  alignItems= "center" justifyContent="space-between" display="block"  width="" height=""
