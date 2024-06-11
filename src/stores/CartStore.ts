@@ -5,11 +5,6 @@ import { CartItem } from "../interfaces/ProductAndCartItemInterface";
 class CartStore {
     totalItems = observable.box(0);
     items = observable.array<CartItem>([]);
-
-    constructor() {
-        makeAutoObservable(this);
-    }
-
     addItem(product: Product): void {
         const existingItem = this.items.find(item => item.id === product.id);
         if (existingItem) {
