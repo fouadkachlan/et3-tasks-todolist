@@ -14,7 +14,7 @@ const CustomText : React.FC<CustomTextProps> = ({children , style , fontWeight ,
     fontWeight,
     fontSize
   };
-  const finalizedStyles = {...basicStyles , style};
+  const finalizedStyles = {...basicStyles , ...style};
   return <p style={finalizedStyles}>{children}</p>
 }
 
