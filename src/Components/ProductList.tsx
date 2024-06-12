@@ -3,7 +3,8 @@ import { observer } from "mobx-react-lite";
 import { productStore } from "../stores/ProductStore";
 import { cartStore } from "../stores/CartStore";
 import CustomDiv from "./CustomDiv";
-
+import CustomText from "./CustomText";
+import CustomButton from "./CustomButton";
 const ProductList: React.FC = observer(() => {
     return (
       <CustomDiv style={{background: "#fff",
@@ -13,7 +14,9 @@ const ProductList: React.FC = observer(() => {
         padding: "10px 0",
         borderBottom: "1px solid #eee"}}
          alignItems= "center" justifyContent="space-between" display="flex"  width="" height="">
-        <h2>Products</h2>
+        <CustomText fontSize="45pt" fontWeight=""
+          style={{}}
+          >Products</CustomText>
         <ul style={{
           listStyle: "none",
           padding: "0"
@@ -21,15 +24,15 @@ const ProductList: React.FC = observer(() => {
           {productStore.products.map(product => (
             <li style={{borderBottom:"none"}} key={product.id}>
               {product.name} - ${product.price}
-              <button style={{
+              <CustomButton color="white"
+              style={{
                 display:"flex",
                 padding: "8px 12px",
                 backgroundColor: "#007bff",
-                color: "white",
                 border: "none",
                 borderRadius: "4px",
                 cursor: "pointer"
-              }} onClick={() => cartStore.addItem(product)}>Add to Cart</button>
+              }} onClick={() => cartStore.addItem(product)}>Add to Cart</CustomButton>
             </li>
           ))}
         </ul>
