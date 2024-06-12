@@ -1,5 +1,6 @@
 import { makeAutoObservable, runInAction } from "mobx";
 import { User } from "../interfaces/userInterface";
+import memoize from "lodash.memoize"
 
 class UserStore
 {
@@ -20,5 +21,6 @@ class UserStore
         })
     }
 }
-
+export const getUserStore = memoize(()=>{return new UserStore()},()=>1)
+export default getUserStore;
 export const userStore = new UserStore();
