@@ -3,6 +3,7 @@ import { observer } from "mobx-react-lite";
 import { cartStore } from "../stores/CartStore";
 import CustomDiv from "./CustomDiv";
 import CustomText from "./CustomText";
+import CustomButton from "./CustomButton";
 
 
 const ShoppingCart: React.FC = observer(() => {
@@ -30,11 +31,10 @@ const ShoppingCart: React.FC = observer(() => {
             key={renderedItem.id}
           >
             {renderedItem.name} - ${renderedItem.price} x {renderedItem.quantity}
-            <button
+            <CustomButton color="white"
               style={{
                 padding: "8px 12px",
                 backgroundColor: "#007bff",
-                color: "white",
                 border: "none",
                 borderRadius: "4px",
                 cursor: "pointer"
@@ -42,7 +42,7 @@ const ShoppingCart: React.FC = observer(() => {
               onClick={renderedItem.removeItem}
             >
               Remove
-            </button>
+            </CustomButton>
           </li>
         ))}
       </ul>
