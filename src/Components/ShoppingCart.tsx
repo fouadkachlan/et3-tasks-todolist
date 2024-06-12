@@ -2,6 +2,7 @@ import React from "react"
 import { observer } from "mobx-react-lite";
 import { cartStore } from "../stores/CartStore";
 import CustomDiv from "./CustomDiv";
+import CustomText from "./CustomText";
 
 
 const ShoppingCart: React.FC = observer(() => {
@@ -14,7 +15,8 @@ const ShoppingCart: React.FC = observer(() => {
         boxShadow: "0 2px 5px rgba(0, 0, 0, 0.1)",
         marginBottom: "20px"
         }}>
-        <h2>Shopping Cart</h2>
+        <CustomText fontSize="45pt" fontWeight="500" style={{color: "red"}}
+        >Shopping Cart</CustomText>
         <ul style={{ listStyle: "none", padding: "0" }}>
         {cartStore.renderedItems.map(renderedItem => (
           <li
