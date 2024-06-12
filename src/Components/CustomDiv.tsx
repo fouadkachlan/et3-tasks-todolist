@@ -17,7 +17,7 @@ const CustomDiv: React.FC<CustomeDivProps> = ({ children, style , width , height
     alignItems,
     justifyContent
   };
-  const finalizedStyles = {...basicStyles , style};
+  const finalizedStyles = {...basicStyles , ...style};
   
   return <div style={finalizedStyles}>{children}</div>;
 }
