@@ -1,6 +1,6 @@
 import { makeAutoObservable, observable, runInAction } from "mobx";
 import { Product } from "../interfaces/productInterface";
-
+import memoize from "lodash.memoize"
 class ProductStore {
     products :Product[] = observable([
         {id: 1 , name: 'Product 1', price: 50},
@@ -16,5 +16,6 @@ class ProductStore {
         });
     }
 }
-
+export const getProductStore = memoize(()=>{return new ProductStore()},()=>1)
+export default getProductStore;
 export const productStore = new ProductStore();
