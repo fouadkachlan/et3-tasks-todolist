@@ -6,12 +6,6 @@ class CartStore {
     totalItems = observable.box(0);
     items = observable.array<CartItem>([]);
 
-    constructor() {
-        makeAutoObservable(this);
-        this.getTotalItems = memoize(this.getTotalItems);
-        //this.totalPrice = memoize(this.totalPrice);
-    }
-
     setItems(items: CartItem[]) : void
     {
         runInAction(() =>{
@@ -72,5 +66,6 @@ class CartStore {
         }));
     }
 }
-
+export const getCartStore = memoize(()=>{return new CartStore()},()=>1)
+export default getCartStore;
 export const cartStore = new CartStore();
