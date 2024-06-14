@@ -1,29 +1,3 @@
-// import React from 'react';
-// import MainPage from './Components/MainPage';
-// import LoginPage from './Components/LoginPage'
-// import { BrowserRouter as Router , Route , Routes} from "react-router-dom";
-// import Page1 from './Pages/Page1';
-// import Page2 from './Pages/Page2';
-// import Page3 from './Pages/Page3';
-// import Page4 from './Pages/Page4';
-// const App  : React.FC = () => {
-//   return (
-    
-//     <Router>
-//       <Routes>
-//         <Route path="/" element={<LoginPage />} />
-//         <Route path="/dashboard" element={<MainPage/>} />
-//         <Route path="/page1" element ={<Page1/>} />
-//         <Route path="/page2" element ={<Page2/>} />
-//         <Route path="/page3" element ={<Page3/>} />
-//         <Route path="/page4" element ={<Page4/>} />
-        
-//       </Routes>
-//     </Router>
-//   );
-// }
-
-// export default App;
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Container } from '@mui/material';
