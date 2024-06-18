@@ -8,12 +8,9 @@ import CustomButton from '../CustomComponents/CustomButton';
 import { uiStore } from '../Stores/UIStore';
 import UserProfile from '../Profiles/UserProfile';
 import PeerProfile from '../Profiles/PeerProfile';
-import TabNavigation from '../TabNavigation';
+import TabNavigation from './TabNavigation';
 
 const MainPage : React.FC  = observer(() => {
-  
-  
-
   return (
     <CustomDiv 
       display="flex" 
@@ -45,8 +42,8 @@ const MainPage : React.FC  = observer(() => {
           color: "black",
           marginBottom: "2rem"
         }} 
-      >
-        Dashboard
+      ><TabNavigation />
+        <br />Dashboard
       </CustomDiv>      
     </CustomDiv>
   );
