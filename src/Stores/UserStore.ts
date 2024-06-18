@@ -1,18 +1,16 @@
 import {runInAction } from "mobx";
-import { User } from "../interfaces/UserInterface";
+import { TUser } from "../interfaces/UserInterface";
 import memoize from "lodash.memoize";
 import { Users  } from "../data/data";
-
-
 class UserStore
 {
     private _user = Users[0];
     private _peerUser = Users[1];
-    get user() : User
+    get user() : TUser
     {
         return this._user;
     }
-    getpeerUser() : User
+    getpeerUser() : TUser
     {
         return this._peerUser;
     }
@@ -56,6 +54,8 @@ class UserStore
     }
 
      handleLogin = (username : string , password: string , navigate : (path: string) => void) => {
+  
+        
         const isUserAuthentication : boolean = this.authenticateUser(username ,  password );
         if (isUserAuthentication)
         {
@@ -65,6 +65,7 @@ class UserStore
             alert ("Auhtentication failed ! ");
         }
         
+      };
 }
 
 export const getUserStore = memoize(() => {return new UserStore()}, ()=>1)
