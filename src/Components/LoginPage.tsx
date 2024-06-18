@@ -3,8 +3,9 @@ import CustomDiv from '../CustomComponents/CustomDiv';
 import CustomInput from '../CustomComponents/CustomInput';
 import CustomButton from '../CustomComponents/CustomButton';
 import CustomForm from "../CustomComponents/CustomForm";
-import { userStore } from '../Stores/UserStore';
+import { userStore } from "../Stores/UserStore";
 import { useNavigate } from "react-router-dom";
+
 
 const LoginPage: React.FC = () => {
   const navigate = useNavigate();
@@ -21,19 +22,14 @@ const LoginPage: React.FC = () => {
       return;
     }
 
-    const IsUserAuthenticated: boolean = userStore.authenticateUser(username, password);
-    if (IsUserAuthenticated) {
-      navigate('/dashboard');
-      alert("Authentication successful");
-    } else {
-      alert("Authentication failed!");
-    }
+    userStore.handleLogin(username, password, navigate);
   };
 
   return (
-    <CustomDiv display="flex" justifyContent="center" alignItems="flex-start" width="17%" height="35rem"
+    <CustomDiv display="flex" justifyContent="center" alignItems="flex-start" width="30%" height="35rem"
       style={{
         marginLeft: "35%",
+        flexWrap: "wrap",
         marginTop: "5%",
         border: "1px solid black ",
         borderRadius: "20px",
