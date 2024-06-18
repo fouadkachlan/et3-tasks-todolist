@@ -1,73 +1,88 @@
-import {runInAction } from "mobx";
+import { runInAction } from "mobx";
 import { TUser } from "../interfaces/UserInterface";
-import memoize from "lodash.memoize";
-import { Users  } from "../data/data";
-class UserStore
-{
-    private _user = Users[0];
-    private _peerUser = Users[1];
-    get user() : TUser
-    {
+import { Users } from "../data/data";
+import CustomPopUp from "../CustomComponents/CustomPopUp";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+
+
+
+class UserStore {
+
+
+    private _user: TUser = Users[0];
+    private _peerUser: TUser = Users[1];
+
+    get user(): TUser {
         return this._user;
+    }
+
+    get peerUser(): TUser {
+        return this._peerUser;
+    }
+
+    setUsername(username: string) {
+        runInAction(() => {
+            this._user.name = username;
+        });
+    }
+
+    setPassword(password: string) {
+        runInAction(() => {
+            this._user.password = password;
+        });
+    }
+
+    setAge(age: number) {
+        runInAction(() => {
+            this._user.age = age;
+        });
+    }
+
+    setLocation(location: string) {
+        runInAction(() => {
+            this._user.location = location;
+        });
     }
     getpeerUser() : TUser
     {
         return this._peerUser;
     }
-    setUsername(username: string)
-    {
-        runInAction(() => {
-            this._user.name = username;
-        })
-    }
-    setPassword(password: string)
-    {
-        runInAction(() => {
-            this._user.password = password;
-        })
-    }
-    setAge(Age:  number)
-    {
-        runInAction(() => {
-            this._user.age = Age;
-        })
-    }
-    setLocation(Location: string)
-    {
-        runInAction(() => {
-            this._user.location = Location;
-        })
-    }
-    setJobPosition(position: string)
-    {
+
+    setJobPosition(position: string) {
         runInAction(() => {
             this._user.job_position = position;
-        })
+        });
     }
+
     authenticateUser(username: string, password: string): boolean {
-        console.log("default username", username);
+        console.log("Default username:", username);
         if (this._user && this._user.name === username && this._user.password === password) {
-            console.log("original username:", this._user.name);
+            console.log("Original username:", this._user.name);
             return true;
         }
         return false;
     }
 
-     handleLogin = (username : string , password: string , navigate : (path: string) => void) => {
-  
-        
-        const isUserAuthentication : boolean = this.authenticateUser(username ,  password );
-        if (isUserAuthentication)
-        {
+    handleLogin = (username: string, password: string , navigate : (path: string) => void ) => {
+        const [showPopUp, setShowPopUp] = useState(false);
+
+        const closePopUp = () => {
+            setShowPopUp(false);
+        };
+
+        const isUserAuthenticated = this.authenticateUser(username, password);
+
+        if (isUserAuthenticated) {
             navigate('/dashboard');
-            alert ("Authentication successful");
+            alert("Authentication successful");
         } else {
-            alert ("Auhtentication failed ! ");
+            setShowPopUp(true);
         }
-        
-      };
+    };
 }
 
-export const getUserStore = memoize(() => {return new UserStore()}, ()=>1)
-export  default getUserStore;
+export const getUserStore = () => new UserStore();
+export default getUserStore;
+
 export const userStore = new UserStore();
