@@ -1,15 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Container } from '@mui/material';
 import UserProfile from './Profiles/UserProfile';
 import PeerProfile from './Profiles/PeerProfile';
-import TabNavigation from './Components/TabNavigation';
 import LoginPage from './Components/LoginPage';
 import MainPage from './Components/MainPage';
-import Page1 from './Pages/Page1';
-import Page2 from './Pages/Page2';
-import Page3 from './Pages/Page3';
-import Page4 from './Pages/Page4';
+import AboutMe from './Pages/AboutMe';
+import Experience from './Pages/Experience';
+import MyBrands from './Pages/MyBrands';
+import ContactMe from './Pages/ContactMe';
 
 
 const App: React.FC = () => {
@@ -19,10 +18,10 @@ const App: React.FC = () => {
         <Routes>
           <Route path="/" element={<LoginPage />} />
           <Route path="/dashboard" element={<MainPage/>} />
-          <Route path="/page1" element ={<Page1/>} />
-          <Route path="/page2" element ={<Page2/>} />
-          <Route path="/page3" element ={<Page3/>} />
-          <Route path="/page4" element ={<Page4/>} />
+          <Route path="/aboutme" element ={<AboutMe/>} />
+          <Route path="/experience" element ={<Experience/>} />
+          <Route path="/mybrands" element ={<MyBrands/>} />
+          <Route path="/contact" element ={<ContactMe/>} />
           <Route path="/user-profile" element={<UserProfile />} />
           <Route path="/peer-profile" element={<PeerProfile />} />
         </Routes>
