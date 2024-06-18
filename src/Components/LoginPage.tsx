@@ -35,7 +35,7 @@ const LoginPage: React.FC = () => {
         borderRadius: "20px",
         flexDirection: "column",
         padding: "2rem",
-        backgroundColor: Colors.CustomGrey  //grey
+        backgroundColor: Colors.grey  //grey
       }}>
       <CustomDiv display="flex" justifyContent="center" alignItems="center" width="100%" height=""
         style={{
@@ -60,7 +60,7 @@ const LoginPage: React.FC = () => {
             hoverStyle={{ 
                 borderColor: "transparent",
                 //BLUE
-                boxShadow: "0 0 0 5px " +  `${Colors.Customblue}` }} /> 
+                boxShadow: "0 0 0 5px " +  `${Colors.blue}` }} /> 
         <CustomInput id="password" style={{
           width: "20rem", height: "2.5rem"
         }}
@@ -70,11 +70,11 @@ const LoginPage: React.FC = () => {
             hoverStyle={{ 
                 borderColor: "transparent",
                 // ALSO BLUE
-                boxShadow: "0 0 0 5px " +  `${Colors.Customblue}` }} /> 
+                boxShadow: "0 0 0 5px " +  `${Colors.blue}` }} /> 
         <CustomButton 
           style={{
             //ALSO  BLUE
-            backgroundColor: Colors.Customblue,
+            backgroundColor: Colors.blue,
             height: "2.5rem",
             width: "10rem",
             marginTop: "1.5rem",
@@ -82,7 +82,7 @@ const LoginPage: React.FC = () => {
           }} color="black"
              hoverStyle={{ 
               //BLACKYBLUE
-                backgroundColor: Colors.CustomBlackyBlue,
+                backgroundColor: Colors.BlackyBlue,
                 color: "white" }}>
           Submit
         </CustomButton>
