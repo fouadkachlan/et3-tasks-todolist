@@ -2,7 +2,9 @@ import React from 'react'
 import CustomDiv from '../CustomComponents/CustomDiv'
 import CustomButton from '../CustomComponents/CustomButton'
 import { useNavigate } from 'react-router-dom'
-const Page4 = () => {
+
+
+const MyBrands = () => {
   const navigate = useNavigate();
   return (
     <CustomDiv style={{marginTop:"300px" , marginRight:"50%"}} width=""  height=""  display="flex"  alignItems="center"  justifyContent="center">
@@ -13,4 +15,4 @@ const Page4 = () => {
   )
 }
 
-export default Page4
+export default MyBrands;
