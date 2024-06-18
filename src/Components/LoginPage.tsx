@@ -1,94 +1,85 @@
-import React from "react";
-import CustomDiv from '../CustomComponents/CustomDiv';
-import CustomInput from '../CustomComponents/CustomInput';
-import CustomButton from '../CustomComponents/CustomButton';
-import CustomForm from "../CustomComponents/CustomForm";
-import { userStore } from "../Stores/UserStore"
-import { useNavigate } from "react-router-dom";
-import Colors from "../Colors/Colors"
+import React from 'react';
+import CustomDiv from './CustomDiv';
+import CustomButton from './CustomButton';
+import Colors from '../Colors/Colors';
+import { useNavigate } from 'react-router-dom';
+import { CustomPopUpProps } from '../interfaces/CustomPropUpProps';
 
-const LoginPage: React.FC = () => {
-  const navigate = useNavigate();
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    const usernameInput = document.getElementById("username") as HTMLInputElement;
-    const passwordInput = document.getElementById("password") as HTMLInputElement;
-    const username = usernameInput.value;
-    const password = passwordInput.value;
 
-    if (!username || !password) {
-      alert("Username and Password are Required \n Please re-enter your username and password!");
-      return;
-    }
+const CustomPopUp : React.FC<CustomPopUpProps> = ({onClose}) => {
 
-    userStore.handleLogin(username, password, navigate);
-  };
-
+    const navigate = useNavigate();
   return (
-    <CustomDiv display="flex" justifyContent="center" alignItems="flex-start" width="30%" height="35rem"
+    <CustomDiv 
+      display='flex'
+      alignItems='center' 
+      justifyContent='center'
+      height="200px"
+      width="350px" // Increased width for better display
+      padding="20px"
       style={{
-        marginLeft: "35%",
-        flexWrap: "wrap",
-        marginTop: "5%",
-        border: "1px solid black ",
-        borderRadius: "20px",
-        flexDirection: "column",
-        padding: "10px",
-        backgroundColor: Colors.grey  //grey
-      }}>
-      <CustomDiv display="flex" justifyContent="center" alignItems="center" width="100%" height=""
+        margin: "15px 10px 20px 10px",
+        backgroundColor: 'white', // Semi-transparent black background
+        borderRadius: '20px', // Rounded corners
+        boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)' // Box shadow for depth
+      }}
+    >
+      <CustomDiv 
+        display='flex'
+        alignItems='center' 
+        justifyContent='center'
+        height="50px"
+        width="50px"
+        padding="10px"
         style={{
-          fontSize: "35pt",
-          fontWeight: "bold",
-          color: "black",
-          marginBottom: "20px",
-        }}>
-        Login Page
-      </CustomDiv>
-      <CustomForm onSubmit={handleSubmit}
-       style={{ 
-            width: "100%",
-            display: "flex", 
-            flexDirection: "column",
-            alignItems: "center",
-            gap: "15px" }}>
-        <CustomInput id="username" type="text" style={{
-          width: "320px", height: "40px"
-        }}  placeholder="Username"
-            borderRadius="10px"
-            hoverStyle={{ 
-                borderColor: "transparent",
-                //BLUE
-                boxShadow: "0 0 0 5px " +  `${Colors.blue}` }} /> 
-        <CustomInput id="password" style={{
-          width: "320px", height: "40px"
+          backgroundColor: 'red',
+          color: "white",
+          borderRadius: '500px',
+          
         }}
-            placeholder="Password"
-            borderRadius="10px"
-            type="password" 
-            hoverStyle={{ 
-                borderColor: "transparent",
-                // ALSO BLUE
-                boxShadow: "0 0 0 5px " +  `${Colors.blue}` }} /> 
-        <CustomButton 
-          style={{
-            //ALSO  BLUE
-            backgroundColor: Colors.blue,
-            height: "40px",
-            width: "150px",
-            marginTop: "20px",
-            borderRadius: "35px"
-          }} color="black"
-             hoverStyle={{ 
-              //BLACKYBLUE
+      > ⚠️
+      </CustomDiv>
+
+      <CustomDiv 
+        display='flex'
+        alignItems='center' 
+        justifyContent='center'
+        height="50px"
+        width="100px"
+        padding="10px"
+        style={{
+          margin: "90px",
+          flexDirection:"row",
+          backgroundColor: 'white', 
+          borderRadius: '10px', 
+          
+        }}
+        
+      >Password and Username are required Please re-enter your credentials
+        <CustomButton onClick={() => {
+            onClose();
+            navigate("/");
+        }}
+            style={{
+                borderRadius: "10px 10px",
+                backgroundColor:"red",
+                color: "white",
+                width: "200px",
+                height: "50px",
+                marginTop: "100px",
+                marginLeft: "50px",
+                marginBlockStart:"100px",
+                marginInlineEnd: "10px"
+            }}
+            hoverStyle={{
                 backgroundColor: Colors.BlackyBlue,
-                color: "white" }}>
-          Submit
-        </CustomButton>
-      </CustomForm>
+                color: "white" }}
+            color="red"
+        >Re-Enter</CustomButton>
+      </CustomDiv>
     </CustomDiv>
   );
-};
+}
 
-export default LoginPage;
+export default CustomPopUp;
