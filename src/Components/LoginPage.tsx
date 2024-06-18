@@ -3,9 +3,9 @@ import CustomDiv from '../CustomComponents/CustomDiv';
 import CustomInput from '../CustomComponents/CustomInput';
 import CustomButton from '../CustomComponents/CustomButton';
 import CustomForm from "../CustomComponents/CustomForm";
-import { userStore } from "../Stores/UserStore";
+import { userStore } from "../Stores/UserStore"
 import { useNavigate } from "react-router-dom";
-
+import Colors from "../Colors/Colors"
 
 const LoginPage: React.FC = () => {
   const navigate = useNavigate();
@@ -35,7 +35,7 @@ const LoginPage: React.FC = () => {
         borderRadius: "20px",
         flexDirection: "column",
         padding: "2rem",
-        backgroundColor: "#EFEFEF"
+        backgroundColor: Colors.CustomGrey  //grey
       }}>
       <CustomDiv display="flex" justifyContent="center" alignItems="center" width="100%" height=""
         style={{
@@ -59,7 +59,8 @@ const LoginPage: React.FC = () => {
             borderRadius="10px"
             hoverStyle={{ 
                 borderColor: "transparent",
-                boxShadow: "0 0 0 5px #3572EF" }} />
+                //BLUE
+                boxShadow: "0 0 0 5px " +  `${Colors.Customblue}` }} /> 
         <CustomInput id="password" style={{
           width: "20rem", height: "2.5rem"
         }}
@@ -68,17 +69,20 @@ const LoginPage: React.FC = () => {
             type="password" 
             hoverStyle={{ 
                 borderColor: "transparent",
-                boxShadow: "0 0 0 5px #3572EF" }} />
+                // ALSO BLUE
+                boxShadow: "0 0 0 5px " +  `${Colors.Customblue}` }} /> 
         <CustomButton 
           style={{
-            backgroundColor: "#3572EF",
+            //ALSO  BLUE
+            backgroundColor: Colors.Customblue,
             height: "2.5rem",
             width: "10rem",
             marginTop: "1.5rem",
             borderRadius: "35px"
           }} color="black"
              hoverStyle={{ 
-                backgroundColor: "#01204E",
+              //BLACKYBLUE
+                backgroundColor: Colors.CustomBlackyBlue,
                 color: "white" }}>
           Submit
         </CustomButton>
