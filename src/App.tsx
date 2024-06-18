@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Container } from '@mui/material';
 import UserProfile from './Profiles/UserProfile';
 import PeerProfile from './Profiles/PeerProfile';
-import TabNavigation from './TabNavigation';
+import TabNavigation from './Components/TabNavigation';
 import LoginPage from './Components/LoginPage';
 import MainPage from './Components/MainPage';
 import Page1 from './Pages/Page1';
@@ -16,7 +16,6 @@ const App: React.FC = () => {
   return (
     <Router>
       <Container style={{marginTop: "20px"}}>
-        <TabNavigation />
         <Routes>
           <Route path="/" element={<LoginPage />} />
           <Route path="/dashboard" element={<MainPage/>} />
