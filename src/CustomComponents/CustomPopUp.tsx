@@ -53,10 +53,11 @@ const CustomPopUp : React.FC<CustomPopUpProps> = ({onClose}) => {
           flexDirection:"row",
           backgroundColor: 'white', 
           borderRadius: '10px', 
+          fontSize:"10pt"
           
         }}
         
-      >Password and Username are required Please re-enter your credentials
+      >Password and Username are not correctley typed or  not typed at all
         <CustomButton onClick={() => {
             onClose();
             navigate("/");
