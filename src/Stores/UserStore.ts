@@ -1,7 +1,9 @@
-import { makeAutoObservable , runInAction } from "mobx";
+import {runInAction } from "mobx";
 import { User } from "../interfaces/UserInterface";
 import memoize from "lodash.memoize";
 import { Users  } from "../data/data";
+
+
 class UserStore
 {
     private _user = Users[0];
@@ -52,6 +54,17 @@ class UserStore
         }
         return false;
     }
+
+     handleLogin = (username : string , password: string , navigate : (path: string) => void) => {
+        const isUserAuthentication : boolean = this.authenticateUser(username ,  password );
+        if (isUserAuthentication)
+        {
+            navigate('/dashboard');
+            alert ("Authentication successful");
+        } else {
+            alert ("Auhtentication failed ! ");
+        }
+        
 }
 
 export const getUserStore = memoize(() => {return new UserStore()}, ()=>1)
