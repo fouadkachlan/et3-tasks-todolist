@@ -1,26 +1,32 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import UserProfile from './Profiles/UserProfile';
+import PeerProfile from './Profiles/PeerProfile';
+import LoginPage from './Components/LoginPage';
+import MainPage from './Components/MainPage';
+import AboutMe from './Pages/AboutMe';
+import Experience from './Pages/Experience';
+import MyBrands from './Pages/MyBrands';
+import ContactMe from './Pages/ContactMe';
 
-function App() {
+
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+    
+        <Routes>
+          <Route path="/" element={<LoginPage />} />
+          <Route path="/dashboard" element={<MainPage/>} />
+          <Route path="/aboutme" element ={<AboutMe/>} />
+          <Route path="/experience" element ={<Experience/>} />
+          <Route path="/mybrands" element ={<MyBrands/>} />
+          <Route path="/contact" element ={<ContactMe/>} />
+          <Route path="/user-profile" element={<UserProfile />} />
+          <Route path="/peer-profile" element={<PeerProfile />} />
+        </Routes>
+  
+    </Router>
   );
-}
+};
 
 export default App;
