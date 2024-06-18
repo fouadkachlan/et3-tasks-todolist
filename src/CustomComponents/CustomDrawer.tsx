@@ -30,7 +30,7 @@ const getLastVisitedPage = () => {
   return (
 
     <CustomDiv
-      width={isOpen ? "500px" : "0"}
+      width={isOpen ? "430px" : "0"}
       height="100%"
       display="flex"
       flexDirection="column"
@@ -38,12 +38,12 @@ const getLastVisitedPage = () => {
       justifyContent="flex-start"
       style={{
         color: "red",
-        position: "fixed",
+        position: "absolute",
         top: "0",
         left: "0",
         backgroundColor: "white",
         overflowX: "hidden",
-        transition: "0.3s",
+        transition: "1s",
         paddingTop: isOpen ? "60px" : "0"
       }}
       onClick={(e: React.MouseEvent<HTMLDivElement>) => e.stopPropagation()} 
