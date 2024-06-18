@@ -1,14 +1,9 @@
-// CustomDrawer.tsx
 import React from 'react';
 import CustomDiv from './CustomDiv';
 import CustomButton from './CustomButton';
 import { observer } from "mobx-react-lite";
 import { uiStore } from '../Stores/UIStore';
 import CustomText from './CustomText';
-import Page1 from '../Pages/Page1';
-import Page4 from '../Pages/Page4';
-import Page2 from '../Pages/Page2';
-import Page3 from '../Pages/Page3';
 import { useNavigate } from 'react-router-dom';
 
 interface CustomDrawerProps
@@ -66,16 +61,16 @@ const getLastVisitedPage = () => {
         Selected Language: {uiStore.selectedLanguage}
       </CustomText>
       <CustomDiv style={{flexDirection:"column"}} width=""  height=""  display="flex"  alignItems="center"  justifyContent="center">
-        <CustomText style={{cursor:"pointer"}} fontSize="20pt" fontWeight="" onClick={() => navigateToPage("page1")}>
+        <CustomText style={{cursor:"pointer"}} fontSize="20pt" fontWeight="" onClick={() => navigateToPage("contact")}>
           Page1
         </CustomText>
-        <CustomText style={{cursor:"pointer"}}  fontSize="20pt" fontWeight="" onClick={() => navigateToPage("page2")}>
+        <CustomText style={{cursor:"pointer"}}  fontSize="20pt" fontWeight="" onClick={() => navigateToPage("aboutme")}>
           Page2
         </CustomText>
-        <CustomText style={{cursor:"pointer"}}  fontSize="20pt" fontWeight="" onClick={() => navigateToPage("page3")} >
+        <CustomText style={{cursor:"pointer"}}  fontSize="20pt" fontWeight="" onClick={() => navigateToPage("experience")} >
           Page3
         </CustomText>
-        <CustomText style={{cursor:"pointer"}}  fontSize="20pt" fontWeight="" onClick={() => navigateToPage("page4")} >
+        <CustomText style={{cursor:"pointer"}}  fontSize="20pt" fontWeight="" onClick={() => navigateToPage("mybrands")} >
           Page4
         </CustomText>
       </CustomDiv>
