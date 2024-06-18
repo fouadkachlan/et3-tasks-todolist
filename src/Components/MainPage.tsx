@@ -20,12 +20,12 @@ const MainPage : React.FC  = observer(() => {
 
     <CustomDiv 
       display="flex" 
-      flexDirection="column" 
-      alignItems="center" 
+      flexDirection="center" 
+      alignItems="flex-start" 
       justifyContent="center" 
-      height="100vh" 
-      width="100%" 
-      padding="2rem"
+      height="100%" 
+      width="70%" 
+      padding="20px"
       style={{ backgroundColor: "lightblue" }} 
     >
       
