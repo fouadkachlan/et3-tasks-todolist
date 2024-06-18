@@ -34,7 +34,7 @@ const LoginPage: React.FC = () => {
         border: "1px solid black ",
         borderRadius: "20px",
         flexDirection: "column",
-        padding: "2rem",
+        padding: "10px",
         backgroundColor: Colors.grey  //grey
       }}>
       <CustomDiv display="flex" justifyContent="center" alignItems="center" width="100%" height=""
@@ -42,7 +42,7 @@ const LoginPage: React.FC = () => {
           fontSize: "35pt",
           fontWeight: "bold",
           color: "black",
-          marginBottom: "2rem",
+          marginBottom: "20px",
         }}>
         Login Page
       </CustomDiv>
@@ -52,9 +52,9 @@ const LoginPage: React.FC = () => {
             display: "flex", 
             flexDirection: "column",
             alignItems: "center",
-            gap: "1rem" }}>
+            gap: "15px" }}>
         <CustomInput id="username" type="text" style={{
-          width: "20rem", height: "2.5rem"
+          width: "320px", height: "40px"
         }}  placeholder="Username"
             borderRadius="10px"
             hoverStyle={{ 
@@ -62,7 +62,7 @@ const LoginPage: React.FC = () => {
                 //BLUE
                 boxShadow: "0 0 0 5px " +  `${Colors.blue}` }} /> 
         <CustomInput id="password" style={{
-          width: "20rem", height: "2.5rem"
+          width: "320px", height: "40px"
         }}
             placeholder="Password"
             borderRadius="10px"
@@ -75,9 +75,9 @@ const LoginPage: React.FC = () => {
           style={{
             //ALSO  BLUE
             backgroundColor: Colors.blue,
-            height: "2.5rem",
-            width: "10rem",
-            marginTop: "1.5rem",
+            height: "40px",
+            width: "150px",
+            marginTop: "20px",
             borderRadius: "35px"
           }} color="black"
              hoverStyle={{ 
