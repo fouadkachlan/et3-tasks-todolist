@@ -4,7 +4,7 @@ import CustomButton from '../CustomComponents/CustomButton'
 import { useNavigate } from 'react-router-dom'
 
 
-const Page1 = () => {
+const ContactMe = () => {
 
   const navigate = useNavigate();
   return (
@@ -13,12 +13,8 @@ const Page1 = () => {
         <CustomButton style={{marginTop:"300px" , marginRight:"50%"}} onClick={() => navigate('/dashboard')}  color="blue"
          >Return To Dashboard</CustomButton>
 
-        {/* <CustomButton style={{marginTop:"300px" , marginRight:"50%"}} onClick={() => navigate('/dashboard')}  color="blue"
-         >Return To Last Page Opened</CustomButton>
-          */}
-
     </CustomDiv>
   )
 }
 
-export default Page1
+export default ContactMe
