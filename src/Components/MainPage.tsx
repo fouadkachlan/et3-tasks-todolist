@@ -1,20 +1,13 @@
 import React from 'react';
 import CustomDiv from '../CustomComponents/CustomDiv';
-import { userStore } from '../Stores/UserStore';
-import CustomText from '../CustomComponents/CustomText';
 import CustomDrawer from '../CustomComponents/CustomDrawer';
 import { observer } from "mobx-react-lite";
 import CustomButton from '../CustomComponents/CustomButton';
 import { uiStore } from '../Stores/UIStore';
-import UserProfile from '../Profiles/UserProfile';
-import PeerProfile from '../Profiles/PeerProfile';
 import TabNavigation from './TabNavigation';
 import Colors from '../Colors/Colors';
 
 const MainPage : React.FC  = observer(() => {
-  
-  
-
   return (
     
 
@@ -32,7 +25,7 @@ const MainPage : React.FC  = observer(() => {
       <CustomButton
       hoverStyle={{ backgroundColor: Colors.BlackyBlue
         ,color: "white" }}
-       style={{marginBottom: "50%" , fontSize:"20pt" , marginBlockEnd: "83%"}}  
+       style={{marginBottom: "50%" , fontSize:"20pt" , marginBlockEnd: "928px"}}  
        color="black"
        onClick={uiStore.toggleDrawer}>|||</CustomButton>
       <CustomDrawer isOpen={uiStore.isDrawerOpen} onClose={uiStore.toggleDrawer} />
@@ -42,12 +35,12 @@ const MainPage : React.FC  = observer(() => {
         alignItems="flex-start"
         height="90%"
         justifyContent="center"
-        padding="1rem" 
+        padding="10px" 
         width="100%"
         style={{ 
           fontSize: "25pt",
           color: "black",
-          marginBottom: "50%"
+          marginBottom: "50px"
         }} 
       ><TabNavigation />
         <br />Dashboard
