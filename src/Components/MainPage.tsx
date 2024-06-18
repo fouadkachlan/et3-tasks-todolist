@@ -9,9 +9,15 @@ import { uiStore } from '../Stores/UIStore';
 import UserProfile from '../Profiles/UserProfile';
 import PeerProfile from '../Profiles/PeerProfile';
 import TabNavigation from './TabNavigation';
+import Colors from '../Colors/Colors';
 
 const MainPage : React.FC  = observer(() => {
+  
+  
+
   return (
+    
+
     <CustomDiv 
       display="flex" 
       flexDirection="column" 
@@ -24,7 +30,8 @@ const MainPage : React.FC  = observer(() => {
     >
       
       <CustomButton
-      hoverStyle={{ backgroundColor: "#01204E",color: "white" }}
+      hoverStyle={{ backgroundColor: Colors.CustomBlackyBlue
+        ,color: "white" }}
        style={{marginBottom: "50%" , fontSize:"20pt" , marginBlockEnd: "83%"}}  
        color="black"
        onClick={uiStore.toggleDrawer}>|||</CustomButton>
@@ -40,7 +47,7 @@ const MainPage : React.FC  = observer(() => {
         style={{ 
           fontSize: "25pt",
           color: "black",
-          marginBottom: "2rem"
+          marginBottom: "50%"
         }} 
       ><TabNavigation />
         <br />Dashboard
