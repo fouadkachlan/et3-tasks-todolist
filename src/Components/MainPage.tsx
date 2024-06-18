@@ -30,7 +30,7 @@ const MainPage : React.FC  = observer(() => {
     >
       
       <CustomButton
-      hoverStyle={{ backgroundColor: Colors.CustomBlackyBlue
+      hoverStyle={{ backgroundColor: Colors.BlackyBlue
         ,color: "white" }}
        style={{marginBottom: "50%" , fontSize:"20pt" , marginBlockEnd: "83%"}}  
        color="black"
