@@ -26,8 +26,9 @@ const PeerProfile : React.FC = () => {
         maxWidth: "65%",
       }}
     >
+      
       <CustomText fontSize="20pt" fontWeight="bold" style={{ color: "white", marginBottom: "1rem" }}>
-        User Profile
+        Peer Profile
       </CustomText>
       <CustomText fontSize="14pt" fontWeight="bold" style={{ color: "white", textAlign: "center" }}>
         Username: {username}
@@ -41,6 +42,7 @@ const PeerProfile : React.FC = () => {
       <CustomText fontSize="14pt" fontWeight="bold" style={{ color: "white", textAlign: "center" }}>
         Job Position: {jobPosition}
       </CustomText>
+      
     </CustomDiv>
   )
 }
