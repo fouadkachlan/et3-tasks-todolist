@@ -1,8 +1,8 @@
  const Colors =
 {
-    Customblue: "#3572EF",
-    CustomGrey: "#EFEFEF",
-    CustomBlackyBlue: "#01204E"
+    blue: "#3572EF",
+    grey: "#EFEFEF",
+    BlackyBlue: "#01204E"
 }
 
 
