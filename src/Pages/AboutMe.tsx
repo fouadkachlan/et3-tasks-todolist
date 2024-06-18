@@ -2,7 +2,7 @@ import React from 'react'
 import CustomDiv from '../CustomComponents/CustomDiv'
 import { useNavigate } from 'react-router-dom'
 import CustomButton from '../CustomComponents/CustomButton'
-const Page2 = () => {
+const AboutMe = () => {
   const navigate = useNavigate();
   return (
     <CustomDiv style={{}} width=""  height=""  display="flex"  alignItems="center"  justifyContent="center">
@@ -13,4 +13,4 @@ const Page2 = () => {
   )
 }
 
-export default Page2
+export default AboutMe
