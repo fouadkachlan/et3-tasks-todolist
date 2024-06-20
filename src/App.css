@@ -1,0 +1,18 @@
+h1,
+p {
+  font-family: Lato;
+}
+
+.light {
+  height: 700px;
+  background-color: white;
+  color: black;
+  transition: all 1s ease-in;
+}
+
+.dark {
+  height: 700px;
+  background-color: #222831;
+  color: lightgray;
+  transition: all 1s ease-in;
+}
