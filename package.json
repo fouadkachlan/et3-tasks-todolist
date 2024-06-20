@@ -1,0 +1,5 @@
+{
+  "devDependencies": {
+    "@types/lodash.memoize": "^4.1.9"
+  }
+}
