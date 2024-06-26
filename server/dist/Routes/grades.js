@@ -1,0 +1,11 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const gradeController_1 = require("../Controllers/gradeController");
+const router = (0, express_1.Router)();
+router.get('/', gradeController_1.getAllGrades);
+router.get('./:id', gradeController_1.getGradeById);
+router.post('/', gradeController_1.createGrade);
+router.put('/:id', gradeController_1.updateGrade);
+router.delete('/:id', gradeController_1.deleteGrade);
+exports.default = router;
