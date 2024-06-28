@@ -1,4 +1,4 @@
-export interface StudentProps {
+export type StudentProps  = {
     StudentId: number;
     StudentFname: string;
     StudentLname: string;
