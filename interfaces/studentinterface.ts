@@ -5,4 +5,5 @@ export type studentProps  = {
     studentDoB: string;
     studentMajor: string;
     hashedPassword: string;
+    role: string;
 }

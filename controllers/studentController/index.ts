@@ -1,9 +1,12 @@
 import { Router } from 'express';
-import { createStudent , getAllStudents} from './studentController'
+import { createStudent , getAllStudents , loginStudent , registerStudent} from './studentController';
+import gatekeeper from '../../middleware/gatekeeper';
+
 const router = Router();
 
-router.post('/createStudent', createStudent);
-router.post('/students' , getAllStudents);
-
+router.post('/createStudent', gatekeeper(['admin']), createStudent);
+router.post('/students' , gatekeeper() ,getAllStudents);
+router.post('/register' , registerStudent);
+router.post('/login', loginStudent )
 
 export default router;
