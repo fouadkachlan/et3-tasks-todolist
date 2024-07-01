@@ -12,3 +12,8 @@ export const userCreateCall = async (StudentFname: string, StudentLname: string,
 export const userSelectCall = async (): Promise<StudentProps[]> => {
     return await studentModels.select();
 };
+
+
+export const userUpdateCall = async (StudentFname : string , StudentLname : string , StudentDoB : string , StudentMajor : string , newPassword : string) : Promise <void> => {
+     await studentModels.update(StudentFname , StudentLname  , StudentDoB , StudentMajor , newPassword )
+}
