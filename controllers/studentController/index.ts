@@ -6,7 +6,7 @@ const router = Router();
 
 router.post('/createStudent', gatekeeper(['admin']), createStudent);
 router.post('/students' , gatekeeper() ,getAllStudents);
-router.post('/register' , registerStudent);
-router.post('/login', loginStudent )
+router.post('/register' , gatekeeper() , registerStudent);
+router.post('/login', gatekeeper() ,loginStudent );
 
 export default router;
