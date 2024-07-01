@@ -1,6 +1,6 @@
 import express, {Request , Response , NextFunction } from 'express';
 import bodyParser from 'body-parser';
-import studentRoutes from "./Controllers/StudentController/index"
+import studentRoutes from "./controllers/studentController/index"
 import { connectDB } from './utils/database';
 const cors = require('cors');
 const app = express();
