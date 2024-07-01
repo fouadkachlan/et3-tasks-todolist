@@ -1,51 +1,32 @@
-import { Request, Response, NextFunction } from "express";
 import rateLimit from "express-rate-limit";
-
+import { Request } from "express";
 
 const rateLimitOptions = {
     default: {
-        maxRequests: 100,
-        windowMS: 60 * 60 * 1000, // 1 hour window
+        max: 100,
+        windowMs: 60 * 60 * 1000, // 1 hour window
     },
-    routes : {
-        "/students" : {maxRequests : 5 , windowMS : 60 * 1000},
-        "/login" : {maxRequests : 2 , windowMS : 60 * 1000}
-    }
+    routes: {
+        "/students": { max: 2, windowMs: 60 * 1000 },
+        "/login": { max: 2, windowMs: 60 * 1000 },
+        "/createStudent": { max: 2, windowMs: 60 * 1000 },
+        "/register": { max: 2, windowMs: 60 * 1000 },
+    },
 };
 
-const getRateLimitOptions = (req :Request) => {
-    const routName = req.route.path || req.originalUrl;
-    return rateLimitOptions.routes["/students"] || rateLimitOptions.default; //here students for example
-}
-
-const createRateLimiter = () => {
-    return (req: Request, res: Response, next: NextFunction) => {
-        const limiterOptions = getRateLimitOptions(req);
-        const { windowMS, maxRequests } = limiterOptions;
-
-        const limiter = rateLimit({
-            windowMs: windowMS,
-            max: maxRequests,
-            message: "Too many requests, please try again later.",
-            keyGenerator: (req: Request) => {
-                const userId = (req.user && req.user.id) || 'anonymous';
-                return `${req.ip}_${userId}`;
-            }
-        });
-
-        limiter(req, res, (err: any) => {
-            if (err) {
-                return res.status(429).json({ message: "Rate limit exceeded, please try again later." });
-            }
-            next();
-        });
-    };
+const createRateLimiter = (options: { windowMs: number; max: number }) => {
+    return rateLimit({
+        windowMs: options.windowMs,
+        max: options.max,
+        message: "Too many requests, please try again later.",
+        keyGenerator: (req: Request) => {
+            return req.ip || "unknown_IP";
+        }
+    });
 };
 
-// Middleware function to apply rate limiting
-const rateLimiter = () => {
-    const limiter = createRateLimiter();
-    return limiter;
-};
-
-export default rateLimiter;
+export const studentRateLimiter = createRateLimiter(rateLimitOptions.routes["/students"]);
+export const loginRateLimiter = createRateLimiter(rateLimitOptions.routes["/login"]);
+export const createStudentRateLimiter = createRateLimiter(rateLimitOptions.routes["/createStudent"]);
+export const registerRateLimiter = createRateLimiter(rateLimitOptions.routes["/register"]);
+export const defaultRateLimiter = createRateLimiter(rateLimitOptions.default);

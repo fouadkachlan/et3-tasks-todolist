@@ -14,6 +14,10 @@ const studentLibrary = {
 
     userUpdateCall : async (studentFirstname: string, studentLastname: string, studentDoB: string, studentMajor: string, password: string, newPassword : string) : Promise <void> => {
         await studentModels.update.update(studentFirstname, studentLastname, studentDoB, studentMajor , newPassword )
+   },
+
+   userLoginCall : async (studentFirstName : string , studentLastname : string , password : string) : Promise<void> => {
+    await studentModels.select.studentSelectOnLogin(studentFirstName,studentLastname,password);
    }
 
 
