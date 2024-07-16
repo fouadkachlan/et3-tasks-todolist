@@ -1,0 +1,20 @@
+{
+  "expo": {
+    "name": "news_reader_app",
+    "slug": "news_reader_app",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "splash": {},
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "10"
+    },
+    "android": {
+      "package": "com.anonymous.news_reader_app"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    }
+  }
+}
