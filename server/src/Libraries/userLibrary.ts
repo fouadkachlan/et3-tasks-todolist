@@ -5,30 +5,22 @@ import { newsModel } from "../Models/newsModel";
 import bcrypt from "bcryptjs";
 import { extractUsername } from "../helpers/utitilty";
 import {getUserModel} from "../Models/userSelect";
-import { News } from "../Interfaces/userProps";
+import { News } from "../Interfaces/newsProps";
 const userLibrary = {
     userCreateCall : async (email_Address : string , hashedPassword : string, phone_Number : string ,user_Country : string) : Promise<void> => {
-        // console.log("userCreateCall Parameters:" , {email_Address , hashedPassword , phone_Number , user_Country}) this statement is for debugging purposes
         await userSignUp.register(email_Address , hashedPassword , phone_Number ,user_Country);
     },
     userLoginCall : async (email_Address : string , password : string) : Promise<{message : string ; user : {email : string , hashPassword : string}} | null> => {
-
-        // console.log("Attempting login for", email_Address);
         const user = await getUserModel.Login(email_Address);
-
         if (!user) {
             console.log("User not found");
             return null;
         }
-        // console.log("User found", user);
         const isPasswordValid = await bcrypt.compare(password , user.Password);
-        
-        
         if (!isPasswordValid) {
             console.log("Invalid Password");
             return null;
         }
-        // console.log("Password is valid");
         const result = {
             message : "Login Successfull",
             user : {
@@ -36,7 +28,6 @@ const userLibrary = {
                 hashPassword: user.Password
             }
         }
-        // console.log("Login Result" , result);
         return result;
     },
 

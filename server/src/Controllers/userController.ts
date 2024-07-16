@@ -41,7 +41,6 @@ export const userProfileData = async (req : Request , res : Response) : Promise<
             return ;
         }
         const userData = await userLibrary.userDataCall(email_Address);
-        // console.log(userData)
         if (userData) {
             res.status(200).json(userData);
         } else {

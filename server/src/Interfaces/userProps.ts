@@ -16,9 +16,3 @@ export type userFetchDataProps = {
     phone_Number : string;
     user_Country : string;
 }
-
-export type News = { 
-    news_Wrote_by: string;
-    date_Of_News : string;
-    News: string;
-}
