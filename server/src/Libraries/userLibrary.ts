@@ -1,14 +1,21 @@
-import { hashPassword } from "../helpers/utitilty";
-import { User } from "../Interfaces/userProps";
-import {userSignUp} from "../Models/userInsert";
-import { newsModel } from "../Models/newsModel";
-import bcrypt from "bcryptjs";
-import { extractUsername } from "../helpers/utitilty";
 import {getUserModel} from "../Models/userSelect";
-import { News } from "../Interfaces/newsProps";
+import {userSignUp} from "../Models/userInsert";
+import bcrypt from "bcryptjs";
+
+
+
+
 const userLibrary = {
-    userCreateCall : async (email_Address : string , hashedPassword : string, phone_Number : string ,user_Country : string) : Promise<void> => {
-        await userSignUp.register(email_Address , hashedPassword , phone_Number ,user_Country);
+    userCreateCall : async (email_Address : string , hashedPassword : string, phone_Number : string ,user_Country : string) : Promise<{message : string}> => {
+        try {
+            await userSignUp.register(email_Address , hashedPassword , phone_Number ,user_Country);
+            const result = {message : "Sign up success"}
+            return result;
+        } catch ( error ) {
+            console.error("Error in user create call," , error)
+            const result = {message : "Sign up failed"}
+            return result;
+        }
     },
     userLoginCall : async (email_Address : string , password : string) : Promise<{message : string ; user : {email : string , hashPassword : string}} | null> => {
         const user = await getUserModel.Login(email_Address);
@@ -50,18 +57,6 @@ const userLibrary = {
             return null;
         }
 
-    },
-    addNewsForUser: async (email: string, news_Content: string): Promise<void> => {
-        if (!email) {
-            console.error("Email cannot be null");
-        }
-        const userName : string = extractUsername(email);
-        await newsModel.insertNews(userName, news_Content, email);
-    },
-
-    fetchingAllNews: async (): Promise<News[]> => {
-        const newsData = await newsModel.fetchAllNewsData();
-        return newsData;
     }
 };
 

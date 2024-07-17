@@ -5,16 +5,46 @@ import CustomText from '../customComponents/CustomText';
 import CustomInput from '../customComponents/CustomInput';
 import getLoginStore from '../stores/loginStore';
 import { observer } from 'mobx-react-lite';
+import axios from "axios";
+import { Alert } from 'react-native';
+import {useNavigation , NavigationProp} from "@react-navigation/native";
+import { RootStackParamList } from '../types/navigation';
 
 const CreateAccount : React.FC = observer(() => {
+  const navigation = useNavigation<NavigationProp<RootStackParamList>>();
+
+  const handleSignUp = async () :Promise<void> => {
+    try 
+    {
+      const response = await axios.post("http://192.168.1.106/api/createUser" , {
+        email_Address : getLoginStore().email.get(),
+        Password: getLoginStore().password.get(),
+        phone_Number : getLoginStore().phone_Number.get(),
+        user_Country : getLoginStore().user_Country.get()
+      });
+      const data = response.data
+      if (data.message === "User Created Successfully")
+      {
+        Alert.alert("Congratulations, you are now in our community");
+        navigation.navigate("Login");
+      }
+    } catch ( error ) {
+      console.error("Error during Sign Up", error);
+      Alert.alert("Error" , "Failed to Sign Up. Please try again later.")
+    }
+
+    
+  }
+
+
   return (
     <CustomView style={{
       display: 'flex',
       justifyContent:'center',
       alignItems: 'flex-start',
       width: 400,
-      height: 738,
-      backgroundColor: 'white'
+      height: 700,
+      backgroundColor: 'white',
       }}>
         <CustomText 
             style={{
@@ -74,7 +104,7 @@ const CreateAccount : React.FC = observer(() => {
         placeholder="*********" 
         value={getLoginStore().password.get()}
         onChangeText={(password : string)=> getLoginStore().setPassword(password) }
-        keyboardType="visible-password"
+        keyboardType="password "
         secureTextEntry={true}
         />
         <CustomText
@@ -82,7 +112,7 @@ const CreateAccount : React.FC = observer(() => {
           fontSize={20}
           fontWeight={'500'}
         >
-          Re-Enter Your password
+          User Country
         </CustomText>
       <CustomInput 
         style={{marginBottom:30 , width: 350}}
@@ -92,11 +122,11 @@ const CreateAccount : React.FC = observer(() => {
         borderRadius={10}
         borderWidth={2}
         padding={10}
-        placeholder="*********" 
-        value={getLoginStore().password.get()}
-        onChangeText={(password : string)=> getLoginStore().setPassword(password)}
-        keyboardType="visible-password"
-        secureTextEntry={true}
+        placeholder="example: Lebanon" 
+        value={getLoginStore().user_Country.get()}
+        onChangeText={(country : string)=> getLoginStore().setUserCountry(country)}
+        keyboardType="default"
+        secureTextEntry={false}
         />
         <CustomText
           style={{color: "black", marginTop: 5 ,marginLeft: 10}}
@@ -114,10 +144,10 @@ const CreateAccount : React.FC = observer(() => {
         borderWidth={2}
         padding={10}
         placeholder="+961-XXX-XXX" 
-        value={getLoginStore().password.get()}
-        onChangeText={(password : string)=> getLoginStore().setPhoneNumber(password)}
-        keyboardType="default"
-        secureTextEntry={true}
+        value={getLoginStore().phone_Number.get()}
+        onChangeText={(number : string)=> getLoginStore().setPhoneNumber(number)}
+        keyboardType="number-pad"
+        secureTextEntry={false}
         />
           <CustomView 
           style={{
@@ -127,7 +157,7 @@ const CreateAccount : React.FC = observer(() => {
             marginLeft: 6
           }}
         >
-            <CustomButton 
+            <CustomButton onPress={handleSignUp}
                 style={{
                   backgroundColor: '#77E4C8',
                   marginBottom: 5 ,

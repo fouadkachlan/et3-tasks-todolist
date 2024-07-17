@@ -15,13 +15,10 @@ import axios from 'axios'
 const HomeNewsScreen : React.FC = observer(() => {
     const navigation = useNavigation<NavigationProp<RootStackParamList>>();
 
-    const fetchNews = async () => {
-        const response = await axios.post("")
-    }
   return (
    <ScrollView style={{
     backgroundColor: 'white'
-   }}>
+    }}>
         <Navigation />
             <CustomView
                 style={{

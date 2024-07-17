@@ -10,7 +10,14 @@ import { observer } from 'mobx-react-lite'
 
 const ForgotPassword : React.FC = observer(() => {
   return (
-    <CustomView style={{display: 'flex' , justifyContent:'center' , alignItems:'center' , margin:10 }} >
+    <CustomView style={{
+        display: 'flex',
+        justifyContent:'center',
+        alignItems:'center',
+        marginBottom:50,
+        height: '100%',
+        backgroundColor: 'white'
+       }} >
         <CustomText 
             style={{
               color : "#77E4C8",

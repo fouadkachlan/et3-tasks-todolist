@@ -12,6 +12,6 @@ export type CustomInputProps = {
     padding?: number | 10;
     placeholder?: string;
     style?: ViewStyle;
-    keyboardType?:  'default' | 'email-address' | 'numeric' | 'phone-pad'| KeyboardTypeOptions ;
+    keyboardType?:  'default' | 'email-address' | 'numeric' | 'phone-pad' | 'password '| KeyboardTypeOptions ;
     secureTextEntry?: boolean;
 }

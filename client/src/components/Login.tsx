@@ -19,7 +19,7 @@ const Login : React.FC = observer(() => {
  
   const handleLogin = async () : Promise<void> => {
     try {
-      const response = await axios.post("http://192.168.100.126:3000/api/loginUser" , {
+      const response = await axios.post("http://192.168.1.106:3000/api/loginUser" , {
         email_Address : getLoginStore().email.get(),
         Password : getLoginStore().password.get()
       });
@@ -43,7 +43,8 @@ const Login : React.FC = observer(() => {
     <CustomView style={{
       display: 'flex',
       justifyContent:'center',
-      backgroundColor: 'white'
+      backgroundColor: 'white',
+      height: '100%'
       }} >
         <CustomText 
             style={{color : "#77E4C8"}}
@@ -231,7 +232,6 @@ const Login : React.FC = observer(() => {
                   <CustomText 
                     style={{
                       color:'#77E4C8',
-                      paddingBottom: 100
                     }}
                     fontSize={16}
                     fontWeight='500'

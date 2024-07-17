@@ -10,19 +10,15 @@ const userImage = require("../../../assets/userImage.png")
 
 
 const UserProfile : React.FC= observer(() => {
-  // const [profileData , setProfileData] = useState<any>(null);
   const handleProfileFetch  = async () : Promise<void>  => {
     try {
-      const response = await axios.post("http://192.168.100.126:3000/api/getUserProfileData" , {
+      const response = await axios.post("http://192.168.1.106:3000/api/getUserProfileData" , {
         email_Address : getLoginStore().email.get(),
         phone_Number : getLoginStore().phone_Number.get(),
         user_Country : getLoginStore().user_Country.get(),
       });
       const data = response.data;
-      // setProfileData(data);
       const settingProfileData = getLoginStore().setProfileData(data.email_Address , data.phone_Number , data.user_Country);
-      // console.log("Data message is here here here here:" , data);
-      
     } catch ( error ) {
       console.error("Error fetching profile ,",error);
     }
@@ -49,7 +45,7 @@ const UserProfile : React.FC= observer(() => {
         }}
       >
       <CustomText
-        style={{}}
+        style={{color: "#77E4C8"}}
         fontSize={30}
         fontWeight="bold"
       >
@@ -77,6 +73,7 @@ const UserProfile : React.FC= observer(() => {
         alignItems: 'center',
         height: 50,
         borderWidth: 2,
+        borderColor:"#77E4C8",
         margin: 20
       }}>
         <CustomText style={{
@@ -92,6 +89,7 @@ const UserProfile : React.FC= observer(() => {
         alignItems: 'center',
         height: 50,
         borderWidth: 2,
+        borderColor:"#77E4C8",
         margin: 20
       }}>
         <CustomText style={{
@@ -106,6 +104,7 @@ const UserProfile : React.FC= observer(() => {
         alignItems: 'center',
         height: 50,
         borderWidth: 2,
+        borderColor:"#77E4C8",
         margin: 20
       }}>
         <CustomText style={{

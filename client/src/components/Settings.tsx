@@ -2,9 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { Switch } from 'react-native';
 import CustomView from '../customComponents/CustomView';
 import CustomText from '../customComponents/CustomText';
-import { MMKV} from 'react-native-mmkv';
+// import {MMKV} from "react-native-mmkv";
 
-//const storage = new MMKV();
+
+// const storage = new MMKV();
 
 const Settings: React.FC = () => {
   const [isEnabled, setIsEnabled] = useState(false);
