@@ -1,19 +1,34 @@
 import { ScrollView, TouchableOpacity } from 'react-native'
-import React from 'react'
-import CustomView from '../customComponents/CustomView'
+import  React , {useEffect}  from 'react'
+import CustomView from '../../customComponents/CustomView'
 import { NavigationProp, useNavigation } from '@react-navigation/native'
-import { RootStackParamList } from '../types/navigation'
-import NewsForm from '../components/NewsForm';
-import CustomText from '../customComponents/CustomText'
-import getNewsStore from '../stores/newsStore'
-import getLoginStore from '../stores/loginStore'
+import { RootStackParamList } from '../../types/navigation'
+import NewsForm from './NewsForm/NewsForm';
+import CustomText from '../../customComponents/CustomText'
+import getNewsStore from '../../stores/newsStore'
 import { observer } from 'mobx-react-lite'
-import Navigation from './Navigation'
+import Navigation from '../Navigation/Navigation'
 import axios from 'axios'
+import { NewsItem } from '../../types/NewsItem'
 
 
 const HomeNewsScreen : React.FC = observer(() => {
     const navigation = useNavigation<NavigationProp<RootStackParamList>>();
+
+
+    const newsInformations = async() : Promise<void> => {
+        const IP_ADDRESS : string = "192.168.100.126"
+        try
+        {
+          const response = await axios.post<NewsItem[]>(`http://${IP_ADDRESS}:3000/api/news`);
+          getNewsStore().setNewsList(response.data);          
+        } catch ( error ) {
+          console.error("Failed Fetching Username" , error);
+        }
+      }
+      useEffect(() =>{
+        newsInformations();
+      },[])
 
   return (
    <ScrollView style={{
@@ -72,8 +87,8 @@ const HomeNewsScreen : React.FC = observer(() => {
                     </CustomView>
                 </TouchableOpacity>
             </CustomView>
-            {getNewsStore().newsList.map((news : string , index : number ) => (
-                <NewsForm key={index} text={news} />
+            {getNewsStore().newsList.map((newsItem : NewsItem , index : number ) => (
+                <NewsForm key={index} newsItem={newsItem} />
             ))}
    </ScrollView>
   )

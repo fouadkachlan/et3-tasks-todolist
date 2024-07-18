@@ -4,8 +4,8 @@ import userLibrary from '../Libraries/userLibrary';
 import newsLibrary from '../Libraries/newsLibrary';
 export const addNews = async (req: Request, res: Response): Promise<void> => {
     try {
-        const { email, news_Content } = req.body;
-        await newsLibrary.addNewsForUser(email, news_Content);
+        const { email, News} = req.body;
+        await newsLibrary.addNewsForUser(email, News);
         console.log("News added successfully");
         res.status(200).json({ message: "News added successfully" });
     } catch (error) {

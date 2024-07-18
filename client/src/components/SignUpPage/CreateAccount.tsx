@@ -1,22 +1,24 @@
 import React from 'react';
-import CustomView from '../customComponents/CustomView';
-import CustomButton from '../customComponents/CustomButton';
-import CustomText from '../customComponents/CustomText';
-import CustomInput from '../customComponents/CustomInput';
-import getLoginStore from '../stores/loginStore';
+import CustomView from '../../customComponents/CustomView';
+import CustomButton from '../../customComponents/CustomButton';
+import CustomText from '../../customComponents/CustomText';
+import CustomInput from '../../customComponents/CustomInput';
+import getLoginStore from '../../stores/loginStore';
 import { observer } from 'mobx-react-lite';
 import axios from "axios";
 import { Alert } from 'react-native';
 import {useNavigation , NavigationProp} from "@react-navigation/native";
-import { RootStackParamList } from '../types/navigation';
+import { RootStackParamList } from '../../types/navigation';
 
 const CreateAccount : React.FC = observer(() => {
   const navigation = useNavigation<NavigationProp<RootStackParamList>>();
 
   const handleSignUp = async () :Promise<void> => {
+    const IP_ADDRESS = "192.168.100.126"
+
     try 
     {
-      const response = await axios.post("http://192.168.1.106/api/createUser" , {
+      const response = await axios.post(`http://${IP_ADDRESS}:3000/api/createUser` , {
         email_Address : getLoginStore().email.get(),
         Password: getLoginStore().password.get(),
         phone_Number : getLoginStore().phone_Number.get(),

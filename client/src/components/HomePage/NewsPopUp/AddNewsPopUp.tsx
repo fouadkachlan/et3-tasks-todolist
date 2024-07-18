@@ -1,47 +1,52 @@
 import {TouchableOpacity, Alert ,  } from 'react-native'
-import getNewsStore from '../stores/newsStore'
+import getNewsStore from '../../../stores/newsStore'
 import { observer } from 'mobx-react-lite';
-import CustomView from '../customComponents/CustomView';
-import CustomInput from '../customComponents/CustomInput';
-import CustomText from '../customComponents/CustomText';
-import CustomButton from '../customComponents/CustomButton';
+import CustomView from '../../../customComponents/CustomView';
+import CustomInput from '../../../customComponents/CustomInput';
+import CustomText from '../../../customComponents/CustomText';
+import CustomButton from '../../../customComponents/CustomButton';
 import { NavigationProp, useNavigation } from '@react-navigation/native';
-import { RootStackParamList } from '../types/navigation';
+import { RootStackParamList } from '../../../types/navigation';
 import axios from "axios";
-import getLoginStore from '../stores/loginStore';
+import getLoginStore from '../../../stores/loginStore';
 import { useEffect } from 'react';
-
+import { NewsItem } from '../../../types/NewsItem';
 
 
 const AddNewsPopUp : React.FC = observer(() => {
     const navigation = useNavigation<NavigationProp<RootStackParamList>>();
     const handleSubmit = async () => {
         if (getNewsStore().news.get()) {
-            getNewsStore().addNews(getNewsStore().news.get());
-            Alert.alert('Success', 'News added successfully');
-            navigation.goBack();
-            newsInformations();
+            try {
+                await handleAddNews();
+                const newsItem: NewsItem = {
+                    news_Wrote_by: getLoginStore().email.get(),
+                    date_Of_News: new Date(),
+                    News: getNewsStore().news.get()
+                }
+                getNewsStore().addNews(newsItem);
+                Alert.alert('Success', 'News added successfully');
+                navigation.goBack();
+            } catch ( error ) {
+                console.log("Error in handling add news!" , error)
+            }      
         } else {
             Alert.alert('Error' , 'Please Enter the news');
         }        
     }
 
-    const newsInformations = async() : Promise<void> => {
-        try
-        {
-          const response = await axios.post("http://192.168.1.106:3000/api/addNews" , {
-            email: getLoginStore().email.get(),
-            news_Content: getNewsStore().news.get()
-          });
-          // const data = response.data;
-          
+    //add news api
+    const handleAddNews = async () : Promise<void> => {
+        try {
+            const IP_ADDRESS : string = "192.168.100.126"
+            const response = await axios.post(`http://${IP_ADDRESS}:3000/api/addNews`, {
+                email: getLoginStore().email.get(),
+                News : getNewsStore().news.get()
+            });
         } catch ( error ) {
-          console.error("Failed Fetching Username" , error);
+            console.error("Error while adding News" , error);
         }
-      }
-    //   useEffect(() =>{
-    //     newsInformations();
-    //   },[])
+    }
     
    return (
         <CustomView

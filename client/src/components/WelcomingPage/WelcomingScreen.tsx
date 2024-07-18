@@ -1,10 +1,10 @@
 import {  Image, ActivityIndicator , TouchableOpacity } from 'react-native'
-import CustomView from '../customComponents/CustomView'
-import CustomText from '../customComponents/CustomText';
-import CustomButton from '../customComponents/CustomButton';
+import CustomView from '../../customComponents/CustomView'
+import CustomText from '../../customComponents/CustomText';
+import CustomButton from '../../customComponents/CustomButton';
 import {useNavigation , NavigationProp} from "@react-navigation/native";
-import { RootStackParamList } from '../types/navigation';
-const welcomingImage = require("../../../assets/welcome.png");
+import { RootStackParamList } from '../../types/navigation';
+const welcomingImage = require("../../../../assets/welcome.png");
 
 
 

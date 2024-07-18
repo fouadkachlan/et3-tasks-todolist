@@ -1,8 +1,8 @@
 import {observable , runInAction} from "mobx";
-
+import { NewsItem } from "../types/NewsItem";
 class NewsStore 
 {
-    newsList = observable.array<string>([]);
+    newsList = observable.array<NewsItem>([]);
     newsCount = observable.box<number>(0);
     news = observable.box<string> ('');
     date = observable.box<Date>(new Date());
@@ -24,11 +24,17 @@ class NewsStore
             this.date.set(dateParameter);
         })
     }
-    addNews(news: string) {
+    addNews(news: NewsItem) {
         runInAction(() => {
             this.newsList.push(news);
             this.incrementNewsCountByOne();
             this.news.set('');
+        })
+    }
+    setNewsList(newsArray : NewsItem[] ) {
+        runInAction(()=> {
+            this.newsList.replace(newsArray);
+            this.newsCount.set(newsArray.length);
         })
     }
     get newsCountTotal() {

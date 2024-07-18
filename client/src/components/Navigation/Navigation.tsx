@@ -1,15 +1,15 @@
 import { Image , TouchableOpacity } from 'react-native'
 import React from 'react'
-import CustomView from '../customComponents/CustomView'
+import CustomView from '../../customComponents/CustomView'
 import { NavigationProp, useNavigation } from '@react-navigation/native'
-import { RootStackParamList } from '../types/navigation'
-import getLoginStore from '../stores/loginStore'
+import { RootStackParamList } from '../../types/navigation'
+import getLoginStore from '../../stores/loginStore'
 import { observer } from 'mobx-react-lite'
 
 
-const userImage = require("../../../assets/userImage.png")
-const settingImage = require("../../../assets/settings.png")
-const  logoutImage = require("../../../assets/logout.png"); 
+const userImage = require("../../../../assets/userImage.png")
+const settingImage = require("../../../../assets/settings.png")
+const  logoutImage = require("../../../../assets/logout.png"); 
 
 
 

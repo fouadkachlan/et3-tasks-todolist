@@ -14,8 +14,7 @@ const newsLibrary = {
     },
 
     fetchingAllNews: async (): Promise<News[]> => {
-        const newsData = await newsModel.fetchAllNewsData();
-        return newsData;
+     return await newsModel.fetchAllNewsData();
     }
 }
 export default newsLibrary

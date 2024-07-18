@@ -1,16 +1,17 @@
 import React from 'react';
 import { TouchableOpacity , Image, Alert} from 'react-native';
-import CustomView from '../customComponents/CustomView';
-import CustomText from '../customComponents/CustomText';
-import CustomInput from '../customComponents/CustomInput';
 import { observer } from 'mobx-react-lite';
-import getLoginStore from '../stores/loginStore';
-import CustomButton from '../customComponents/CustomButton';
+import { RootStackParamList } from '../../types/navigation';
 import {useNavigation , NavigationProp} from "@react-navigation/native";
-import { RootStackParamList } from '../types/navigation';
 import axios from "axios";
+import CustomView from '../../customComponents/CustomView';
+import CustomText from '../../customComponents/CustomText';
+import CustomInput from '../../customComponents/CustomInput';
+import CustomButton from '../../customComponents/CustomButton';
+import getLoginStore from '../../stores/loginStore';
 
-const googleImage = require('../../../assets/google-symbol.png');
+// const googleImage = require('../../../assets/google-symbol.png');
+const googleImage = require('../../../../assets/google-symbol.png');
 
 const Login : React.FC = observer(() => {
 
@@ -18,8 +19,9 @@ const Login : React.FC = observer(() => {
 
  
   const handleLogin = async () : Promise<void> => {
+    const IP_ADDRESS : string = "192.168.100.126"
     try {
-      const response = await axios.post("http://192.168.1.106:3000/api/loginUser" , {
+      const response = await axios.post(`http://${IP_ADDRESS}:3000/api/loginUser` , {
         email_Address : getLoginStore().email.get(),
         Password : getLoginStore().password.get()
       });

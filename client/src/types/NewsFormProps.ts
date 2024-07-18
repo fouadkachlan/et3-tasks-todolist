@@ -1,3 +1,5 @@
+import { NewsItem } from "./NewsItem"
+
 export type NewsFormProps = {
-    text : string;
+   newsItem: NewsItem;
 }

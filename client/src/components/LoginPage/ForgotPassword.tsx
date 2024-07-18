@@ -1,10 +1,10 @@
 import { TouchableOpacity ,Alert , Image } from 'react-native'
 import React from 'react'
-import CustomView from '../customComponents/CustomView'
-import CustomText from '../customComponents/CustomText'
-import CustomInput from '../customComponents/CustomInput'
-import getLoginStore from '../stores/loginStore'
-import CustomButton from '../customComponents/CustomButton'
+import CustomView from '../../customComponents/CustomView'
+import CustomText from '../../customComponents/CustomText'
+import CustomInput from '../../customComponents/CustomInput'
+import getLoginStore from '../../stores/loginStore'
+import CustomButton from '../../customComponents/CustomButton'
 import { observer } from 'mobx-react-lite'
 
 

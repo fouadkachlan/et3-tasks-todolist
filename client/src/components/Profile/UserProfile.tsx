@@ -1,18 +1,19 @@
 import { Image } from 'react-native'
 import React, { useState } from 'react'
-import CustomView from '../customComponents/CustomView'
-import CustomText from '../customComponents/CustomText'
+import CustomView from '../../customComponents/CustomView'
+import CustomText from '../../customComponents/CustomText'
 import axios from "axios"
-import getLoginStore from '../stores/loginStore'
+import getLoginStore from '../../stores/loginStore'
 import { observer } from 'mobx-react-lite'
-const userImage = require("../../../assets/userImage.png")
+const userImage = require("../../../../assets/userImage.png")
 
 
 
 const UserProfile : React.FC= observer(() => {
   const handleProfileFetch  = async () : Promise<void>  => {
+    const IP_ADDRESS : string = "192.168.100.126"
     try {
-      const response = await axios.post("http://192.168.1.106:3000/api/getUserProfileData" , {
+      const response = await axios.post(`http://${IP_ADDRESS}:3000/api/getUserProfileData` , {
         email_Address : getLoginStore().email.get(),
         phone_Number : getLoginStore().phone_Number.get(),
         user_Country : getLoginStore().user_Country.get(),

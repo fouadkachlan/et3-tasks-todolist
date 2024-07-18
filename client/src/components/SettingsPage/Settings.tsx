@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Switch } from 'react-native';
-import CustomView from '../customComponents/CustomView';
-import CustomText from '../customComponents/CustomText';
+import CustomView from '../../customComponents/CustomView';
+import CustomText from '../../customComponents/CustomText';
 // import {MMKV} from "react-native-mmkv";
 
 
