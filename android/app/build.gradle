@@ -144,6 +144,7 @@ dependencies {
     implementation("com.facebook.react:react-android")
     implementation 'com.facebook.react:react-native-mmkv:2.10.1'
 
+
     def isGifEnabled = (findProperty('expo.gif.enabled') ?: "") == "true";
     def isWebpEnabled = (findProperty('expo.webp.enabled') ?: "") == "true";
     def isWebpAnimatedEnabled = (findProperty('expo.webp.animated') ?: "") == "true";

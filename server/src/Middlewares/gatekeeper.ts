@@ -5,6 +5,7 @@ const gateKeeper = (roles :  string[] = []) => {
     return (req : Request , res : Response , next : NextFunction) => {
         // const token = req.header["authorization"];
         const token = req.get("Authorization");
+        // console.log(token)
 
         if (!token)
         {

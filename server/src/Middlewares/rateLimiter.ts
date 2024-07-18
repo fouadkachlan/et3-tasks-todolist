@@ -8,7 +8,7 @@ const rateLimitOptions = {
     },
 
     routes: {
-        "/createUser": { max: 2, windowMs: 60 * 1000 } 
+        "/createUser": { max: 1, windowMs: 60 * 1000 } 
     }
 };
 

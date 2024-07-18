@@ -8,7 +8,7 @@ import {  observable, runInAction } from "mobx";
     phone_Number = observable.box<string>('');
     user_Country = observable.box<string>('');
     username = observable.box<string>('');
-
+    
     setEmail = (emailParameter : string) => {
         runInAction(()=>{
             this.email.set(emailParameter);        

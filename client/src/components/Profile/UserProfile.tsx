@@ -17,7 +17,7 @@ const UserProfile : React.FC= observer(() => {
         email_Address : getLoginStore().email.get(),
         phone_Number : getLoginStore().phone_Number.get(),
         user_Country : getLoginStore().user_Country.get(),
-      });
+      } );
       const data = response.data;
       const settingProfileData = getLoginStore().setProfileData(data.email_Address , data.phone_Number , data.user_Country);
     } catch ( error ) {
