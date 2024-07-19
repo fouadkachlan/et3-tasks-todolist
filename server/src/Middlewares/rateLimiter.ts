@@ -4,7 +4,7 @@ import { Request } from "express";
 const rateLimitOptions = { 
     default: {
         max: 10,
-        windowMs: 60 * 60 * 1000, // Corrected typo: windowMs instead of windowsMs
+        windowMs: 60 * 60 * 1000,
     },
 
     routes: {

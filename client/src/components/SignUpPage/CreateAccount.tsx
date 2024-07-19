@@ -14,7 +14,7 @@ const CreateAccount : React.FC = observer(() => {
   const navigation = useNavigation<NavigationProp<RootStackParamList>>();
 
   const handleSignUp = async () :Promise<void> => {
-    const IP_ADDRESS = "192.168.100.126"
+    const IP_ADDRESS = "192.168.1.106"
 
     try 
     {

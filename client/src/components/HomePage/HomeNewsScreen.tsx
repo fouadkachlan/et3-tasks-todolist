@@ -17,7 +17,7 @@ const HomeNewsScreen : React.FC = observer(() => {
 
 
     const newsInformations = async() : Promise<void> => {
-        const IP_ADDRESS : string = "192.168.100.126"
+        const IP_ADDRESS : string = "192.168.1.106"
         try
         {
           const response = await axios.post<NewsItem[]>(`http://${IP_ADDRESS}:3000/api/news`);

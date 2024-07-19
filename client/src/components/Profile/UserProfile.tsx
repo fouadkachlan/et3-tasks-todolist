@@ -11,7 +11,7 @@ const userImage = require("../../../../assets/userImage.png")
 
 const UserProfile : React.FC= observer(() => {
   const handleProfileFetch  = async () : Promise<void>  => {
-    const IP_ADDRESS : string = "192.168.100.126"
+    const IP_ADDRESS : string = "192.168.1.106"
     try {
       const response = await axios.post(`http://${IP_ADDRESS}:3000/api/getUserProfileData` , {
         email_Address : getLoginStore().email.get(),
@@ -46,7 +46,10 @@ const UserProfile : React.FC= observer(() => {
         }}
       >
       <CustomText
-        style={{color: "#77E4C8"}}
+        style={{
+          color: "#77E4C8",
+          marginBottom: 50
+        }}
         fontSize={30}
         fontWeight="bold"
       >
@@ -64,7 +67,7 @@ const UserProfile : React.FC= observer(() => {
           style={{
             height: 200,
             width: 200,
-            margin: 30
+            margin: 20
           }}
           source={userImage} />
       </CustomView>

@@ -2,14 +2,16 @@ import React, { useEffect, useState } from 'react';
 import { Switch } from 'react-native';
 import CustomView from '../../customComponents/CustomView';
 import CustomText from '../../customComponents/CustomText';
-import { MMKV } from 'react-native-mmkv';
+import  {MMKV}  from 'react-native-mmkv';
 
 // export const storage = new MMKV();
 
 const Settings: React.FC = () => {
   const [isEnabled, setIsEnabled] = useState(false);
-
-
+  // const mmkv = MMKV.set("username" , "Fouad")
+  // const storage = new MMKV();
+  // storage.set('username','Fouad')
+  // console.log(storage.getString("username"))
   // const toggleSwitch = () => {
   //   const newValue = !isEnabled;
   //   setIsEnabled(newValue);
@@ -34,7 +36,7 @@ const Settings: React.FC = () => {
         }}
       >
         <CustomText
-          style={{}}
+          style={{color: '#77E4C8'}}
           fontSize={50}
           fontWeight="bold"
         >
@@ -47,9 +49,9 @@ const Settings: React.FC = () => {
           justifyContent: 'flex-start',
           alignItems: 'flex-start',
           flexDirection:'row',
-          borderWidth: 1,
-          paddingBottom: 50,
-          margin: 5
+          borderWidth: 2,
+          borderColor: '#77E4C8',
+          paddingBottom: 50
         }}
       >
         <CustomText

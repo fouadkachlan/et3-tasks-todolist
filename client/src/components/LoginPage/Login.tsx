@@ -10,7 +10,6 @@ import CustomInput from '../../customComponents/CustomInput';
 import CustomButton from '../../customComponents/CustomButton';
 import getLoginStore from '../../stores/loginStore';
 
-// const googleImage = require('../../../assets/google-symbol.png');
 const googleImage = require('../../../../assets/google-symbol.png');
 
 const Login : React.FC = observer(() => {
@@ -19,7 +18,7 @@ const Login : React.FC = observer(() => {
 
  
   const handleLogin = async () : Promise<void> => {
-    const IP_ADDRESS : string = "192.168.100.126"
+    const IP_ADDRESS : string = "192.168.1.106"
     try {
       const response = await axios.post(`http://${IP_ADDRESS}:3000/api/loginUser` , {
         email_Address : getLoginStore().email.get(),
@@ -102,7 +101,6 @@ const Login : React.FC = observer(() => {
                 <CustomText 
                     style={{
                       color:'#77E4C8',
-                      // marginLeft: 250
                     }}
                     fontSize={16}
                     fontWeight='500'
