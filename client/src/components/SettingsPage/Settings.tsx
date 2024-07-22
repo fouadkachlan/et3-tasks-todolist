@@ -4,14 +4,33 @@ import CustomView from '../../customComponents/CustomView';
 import CustomText from '../../customComponents/CustomText';
 import  {MMKV}  from 'react-native-mmkv';
 
-// export const storage = new MMKV();
-
+// class MMKVFaker {
+//   private data : any = {};
+//   getString(key : string ) {
+//     return this.data[key];
+//   }
+//   set ( key : string , value : string ) {
+//     this.data[key] = value;
+//   }
+//   delete (key : string ) {
+//     if (this.data[key]) {
+//       this.data[key] = undefined;
+//     }
+//   }
+//   clearAll() {
+//     this.data = {}
+//   }
+// }
+  // const mmkvStorage = __DEV__ ? new MMKVFaker() : new MMKV();
+  // const saveName = mmkvStorage.set("Fouad" , "Kachlane");
 const Settings: React.FC = () => {
+
   const [isEnabled, setIsEnabled] = useState(false);
-  // const mmkv = MMKV.set("username" , "Fouad")
-  // const storage = new MMKV();
-  // storage.set('username','Fouad')
-  // console.log(storage.getString("username"))
+  
+  // const mmkv = new MMKV();
+
+
+
   // const toggleSwitch = () => {
   //   const newValue = !isEnabled;
   //   setIsEnabled(newValue);
@@ -26,6 +45,9 @@ const Settings: React.FC = () => {
   //     setIsEnabled(storedTheme);
   //   }
   // },[]);
+
+
+
   return (
     <CustomView style={{ backgroundColor: 'white', height: 900 }}>
       <CustomView

@@ -8,7 +8,7 @@ import bcrypt from "bcryptjs";
 const userLibrary = {
     userCreateCall : async (email_Address : string , hashedPassword : string, phone_Number : string ,user_Country : string) : Promise<{message : string}> => {
         try {
-            await userSignUp.register(email_Address , hashedPassword , phone_Number ,user_Country);
+            await userSignUp.registerAsUser(email_Address , hashedPassword , phone_Number ,user_Country);
             const result = {message : "Sign up success"}
             return result;
         } catch ( error ) {
@@ -17,8 +17,19 @@ const userLibrary = {
             return result;
         }
     },
-    userLoginCall : async (email_Address : string , password : string) : Promise<{message : string ; user : {email : string , hashPassword : string}} | null> => {
-        const user = await getUserModel.Login(email_Address);
+    adminCreateCall : async (email_Address : string , hashedPassword : string, phone_Number : string ,user_Country : string) : Promise<{message : string}> => {
+        try {
+            await userSignUp.registerAsAdmin(email_Address , hashedPassword , phone_Number ,user_Country);
+            const result = {message : "Sign up success"}
+            return result;
+        } catch ( error ) {
+            console.error("Error in user create call," , error)
+            const result = {message : "Sign up failed"}
+            return result;
+        }
+    },
+    userLoginCallAsUser : async (email_Address : string , password : string) : Promise<{message : string ; user : {email : string , hashPassword : string}} | null> => {
+        const user = await getUserModel.LoginAsUser(email_Address);
         if (!user) {
             console.log("User not found");
             return null;
@@ -37,6 +48,27 @@ const userLibrary = {
         }
         return result;
     },
+    userLoginCallAsAdmin : async (email_Address : string , password : string) : Promise<{message : string ; user : {email : string , hashPassword : string}} | null> => {
+        const user = await getUserModel.LoginAsAdmin(email_Address);
+        if (!user) {
+            console.log("User not found");
+            return null;
+        }
+        const isPasswordValid = await bcrypt.compare(password , user.Password);
+        if (!isPasswordValid) {
+            console.log("Invalid Password");
+            return null;
+        }
+        const result = {
+            message : "Login Successfull",
+            user : {
+                email: user.email_Address,
+                hashPassword: user.Password
+            }
+        }
+        return result;
+    },
+
 
     userDataCall : async (email_Address : string) : Promise<{email_Address : string ; phone_Number : string ; user_Country : string;} | void | null> => {
         try {

@@ -3,7 +3,20 @@ import {User} from "../Interfaces/userProps";
 import { userFetchDataProps } from "../Interfaces/userProps";
 
 export const getUserModel = {
-    Login: async (email_Address: string): Promise<User | null> => {
+    LoginAsUser: async (email_Address: string): Promise<User | null> => {
+        const userLoginQuery : string = "SELECT * FROM `News_Reader_App`.`Sign_Up_New_Users` WHERE email_Address=?";
+        const result = await executeQuery<User>(userLoginQuery, [email_Address]);
+        // console.log(result);
+
+        if (result.length === 0) {
+            return null;
+        }
+        return {
+            email_Address: result[0].email_Address,   
+            Password: result[0].Password
+        };
+    },
+    LoginAsAdmin: async (email_Address: string): Promise<User | null> => {
         const userLoginQuery : string = "SELECT * FROM `News_Reader_App`.`Sign_Up_New_Users` WHERE email_Address=?";
         const result = await executeQuery<User>(userLoginQuery, [email_Address]);
         // console.log(result);

@@ -14,7 +14,7 @@ const CreateAccount : React.FC = observer(() => {
   const navigation = useNavigation<NavigationProp<RootStackParamList>>();
 
   const handleSignUp = async () :Promise<void> => {
-    const IP_ADDRESS = "192.168.1.106"
+    const IP_ADDRESS = "192.168.100.126"
 
     try 
     {
@@ -45,7 +45,7 @@ const CreateAccount : React.FC = observer(() => {
       justifyContent:'center',
       alignItems: 'flex-start',
       width: 400,
-      height: 700,
+      height: 750,
       backgroundColor: 'white',
       }}>
         <CustomText 
@@ -109,15 +109,34 @@ const CreateAccount : React.FC = observer(() => {
         keyboardType="password "
         secureTextEntry={true}
         />
-        <CustomText
+        <CustomView style ={{
+          display: 'flex',
+          flexDirection: 'row',
+          gap: 60
+        }}>
+           <CustomText
           style={{color: "black", marginTop: 5 , marginLeft: 10}}
           fontSize={20}
           fontWeight={'500'}
         >
           User Country
         </CustomText>
+        <CustomText
+          style={{color: "black", marginTop: 5 ,marginLeft: 10}}
+          fontSize={20}
+          fontWeight={'500'}
+        >
+          Phone Number
+        </CustomText>
+        </CustomView>
+        <CustomView style={{
+          display: 'flex',
+          flexDirection: 'row',
+          width: '50%'
+        }}>
+          
       <CustomInput 
-        style={{marginBottom:30 , width: 350}}
+        style={{marginBottom:30}}
         height={50}
         margin={12}
         marginRight={30}
@@ -130,27 +149,22 @@ const CreateAccount : React.FC = observer(() => {
         keyboardType="default"
         secureTextEntry={false}
         />
-        <CustomText
-          style={{color: "black", marginTop: 5 ,marginLeft: 10}}
-          fontSize={20}
-          fontWeight={'500'}
-        >
-          Phone Number
-        </CustomText>
+        
       <CustomInput 
-        style={{marginBottom:30 , width: 350}}
+        style={{marginBottom:30}}
         height={50}
         margin={12}
         marginRight={30}
         borderRadius={10}
         borderWidth={2}
         padding={10}
-        placeholder="+961-XXX-XXX" 
+        placeholder="+961-XXX-XXX => " 
         value={getLoginStore().phone_Number.get()}
         onChangeText={(number : string)=> getLoginStore().setPhoneNumber(number)}
         keyboardType="number-pad"
         secureTextEntry={false}
         />
+        </CustomView>
           <CustomView 
           style={{
             display: 'flex',

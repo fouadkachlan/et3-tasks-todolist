@@ -7,7 +7,6 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import CreateAccount from './client/src/components/SignUpPage/CreateAccount';
 import ForgotPassword from './client/src/components/LoginPage/ForgotPassword';
 import HomeNewsScreen from './client/src/components/HomePage/HomeNewsScreen';
-// import userProfile from "../../client/src/components/UserProfile";
 import Settings from "./client/src/components/SettingsPage/Settings";
 import AddNewsPopUp from './client/src/components/HomePage/NewsPopUp/AddNewsPopUp';
 import UserProfile from './client/src/components/Profile/UserProfile';
